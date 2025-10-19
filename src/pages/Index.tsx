@@ -174,7 +174,7 @@ const Index = () => {
                     <Icon name="MapPin" className="inline mr-1" size={16} />
                     г. Екатеринбург, ул. Гагарина, 30а, отель Grand Hall
                   </p>
-                  <div className="w-full h-64 rounded-lg overflow-hidden">
+                  <div className="w-full h-64 rounded-lg overflow-hidden mb-3">
                     <iframe
                       src="https://yandex.ru/map-widget/v1/?ll=60.597465%2C56.838011&z=16&pt=60.597465,56.838011,pm2rdm"
                       width="100%"
@@ -184,6 +184,15 @@ const Index = () => {
                       className="border-0"
                     />
                   </div>
+                  <a 
+                    href="https://yandex.ru/maps/?rtext=~56.838011,60.597465" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-sans"
+                  >
+                    <Icon name="Navigation" size={16} />
+                    Построить маршрут
+                  </a>
                 </div>
               </div>
             </Card>
