@@ -78,6 +78,66 @@ const Index = () => {
       <div className="absolute bottom-0 left-0 w-32 h-32 border-l-2 border-b-2 border-accent/10 pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-32 h-32 border-r-2 border-b-2 border-primary/10 pointer-events-none" />
       
+      {/* Обрамление зелёными веточками */}
+      <div className="absolute top-0 left-0 w-64 h-64 opacity-40 pointer-events-none">
+        <img 
+          src="https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/fe03b648-36f8-4a50-bcbd-9c4f50ad78b0.jpg" 
+          alt="" 
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="absolute top-0 right-0 w-64 h-64 opacity-40 pointer-events-none transform scale-x-[-1]">
+        <img 
+          src="https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/b60c4884-e323-4164-b43b-ba9649cccf2c.jpg" 
+          alt="" 
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="absolute bottom-0 left-0 w-64 h-64 opacity-40 pointer-events-none transform rotate-180">
+        <img 
+          src="https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/b60c4884-e323-4164-b43b-ba9649cccf2c.jpg" 
+          alt="" 
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="absolute bottom-0 right-0 w-64 h-64 opacity-40 pointer-events-none transform scale-x-[-1] rotate-180">
+        <img 
+          src="https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/fe03b648-36f8-4a50-bcbd-9c4f50ad78b0.jpg" 
+          alt="" 
+          className="w-full h-full object-contain"
+        />
+      </div>
+      
+      {/* Золотой папоротник - декоративные акценты */}
+      <div className="absolute top-32 left-16 w-48 h-48 opacity-30 pointer-events-none">
+        <img 
+          src="https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/f7258555-7e53-408b-bfc2-8ca8f6cd9c06.jpg" 
+          alt="" 
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="absolute top-32 right-16 w-48 h-48 opacity-30 pointer-events-none transform scale-x-[-1]">
+        <img 
+          src="https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/97bf27ff-5033-4c36-86ca-10b6cbc64c50.jpg" 
+          alt="" 
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="absolute bottom-32 left-16 w-48 h-48 opacity-30 pointer-events-none transform rotate-180">
+        <img 
+          src="https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/97bf27ff-5033-4c36-86ca-10b6cbc64c50.jpg" 
+          alt="" 
+          className="w-full h-full object-contain"
+        />
+      </div>
+      <div className="absolute bottom-32 right-16 w-48 h-48 opacity-30 pointer-events-none transform scale-x-[-1] rotate-180">
+        <img 
+          src="https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/f7258555-7e53-408b-bfc2-8ca8f6cd9c06.jpg" 
+          alt="" 
+          className="w-full h-full object-contain"
+        />
+      </div>
+      
       <div className="container max-w-4xl mx-auto px-4 py-12 space-y-16 relative z-10">
         
         <section className="text-center space-y-8 animate-fade-in">
