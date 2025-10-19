@@ -140,6 +140,24 @@ const Index = () => {
           </div>
         </section>
 
+        <section className="flex justify-center animate-fade-in">
+          <div className="relative max-w-2xl w-full">
+            <div className="absolute -top-4 -left-4 w-24 h-24 opacity-40">
+              <img src="https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/6004a1ea-058a-416f-a4b8-457977aa7764.jpg" alt="" className="w-full h-full object-contain" />
+            </div>
+            <div className="absolute -bottom-4 -right-4 w-24 h-24 opacity-40 transform scale-x-[-1]">
+              <img src="https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/04d30e20-b8da-48e5-820b-3b416afaa147.jpg" alt="" className="w-full h-full object-contain" />
+            </div>
+            <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-card relative z-10">
+              <img 
+                src="https://cdn.poehali.dev/files/4af12923-fef6-4557-93a3-45ef6d1535de.jpg" 
+                alt="Лев и Яна" 
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          </div>
+        </section>
+
         <section className="space-y-8 animate-fade-in">
           <h2 className="font-serif text-5xl text-center text-primary">Программа дня</h2>
           
