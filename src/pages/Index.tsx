@@ -176,7 +176,7 @@ const Index = () => {
                   </p>
                   <div className="w-full h-64 rounded-lg overflow-hidden">
                     <iframe
-                      src="https://yandex.ru/map-widget/v1/?ll=60.597465%2C56.838011&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NjczMTAxNRJP0KDQvtGB0YHQuNGPLCDQldC60LDRgtC10YDQuNC90LHRg9GA0LMsINGD0LvQuNGG0LAg0JPQsNCz0LDRgNC40L3QsCwgMzDQsCIKDWCvTEIVAL9cQg%2C%2C&z=16"
+                      src="https://yandex.ru/map-widget/v1/?ll=60.597465%2C56.838011&z=16&pt=60.597465,56.838011,pm2rdm"
                       width="100%"
                       height="100%"
                       frameBorder="0"
