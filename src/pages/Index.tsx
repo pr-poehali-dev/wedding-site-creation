@@ -57,14 +57,21 @@ const Index = () => {
       <div className="container max-w-4xl mx-auto px-4 py-12 space-y-16">
         
         <section className="text-center space-y-8 animate-fade-in">
-          <div className="space-y-4">
-            <h1 className="font-serif text-6xl md:text-8xl text-primary mb-2">
+          <div className="space-y-6">
+            <h1 className="font-serif text-6xl md:text-8xl text-primary mb-6">
               Лев & Яна
             </h1>
-            <p className="font-serif text-2xl md:text-3xl text-foreground/80 max-w-2xl mx-auto leading-relaxed">
-              Приглашаем вас разделить с нами радость самого важного дня в нашей жизни. 
-              Будем счастливы видеть вас среди близких людей на нашем торжестве!
-            </p>
+            <div className="max-w-3xl mx-auto space-y-4">
+              <p className="font-serif text-2xl text-primary">
+                Дорогой гость!
+              </p>
+              <p className="font-serif text-lg md:text-xl text-foreground/80 leading-relaxed">
+                Мы с замиранием сердца и особым трепетом приглашаем тебя стать частью самого важного дня в нашей жизни — дня, когда мы соединяем свои сердца и судьбы.
+              </p>
+              <p className="font-serif text-lg md:text-xl text-foreground/80 leading-relaxed">
+                Этот день для нас — не просто праздник. Это начало новой главы, наполненной мечтами, планами, любовью и верой в то, что всё самое светлое ещё впереди. И мы искренне хотим, чтобы рядом с нами в этот волнующий момент были самые близкие и дорогие люди — такие, как ты.
+              </p>
+            </div>
           </div>
           
           <div className="inline-block">
