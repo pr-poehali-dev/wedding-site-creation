@@ -37,7 +37,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-secondary/10 to-accent/5 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-stone-100 to-amber-50/50 relative overflow-hidden vintage-texture sepia-tone">
       {/* Декоративные круги и формы */}
       <div className="absolute top-20 left-10 w-64 h-64 border border-primary/5 rounded-full pointer-events-none" />
       <div className="absolute top-40 left-20 w-48 h-48 border border-accent/5 rounded-full pointer-events-none" />
@@ -72,11 +72,31 @@ const Index = () => {
       <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/8 to-transparent" />
       <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/10 to-transparent" />
       
-      {/* Угловые орнаменты */}
-      <div className="absolute top-0 left-0 w-32 h-32 border-l-2 border-t-2 border-primary/10 pointer-events-none" />
-      <div className="absolute top-0 right-0 w-32 h-32 border-r-2 border-t-2 border-accent/10 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-32 h-32 border-l-2 border-b-2 border-accent/10 pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-32 h-32 border-r-2 border-b-2 border-primary/10 pointer-events-none" />
+      {/* Угловые винтажные орнаменты */}
+      <div className="absolute top-0 left-0 w-48 h-48 pointer-events-none opacity-30">
+        <div className="border-l-4 border-t-4 border-amber-700/40 w-full h-full" style={{borderImage: 'linear-gradient(135deg, #8B7355, #D4AF37) 1'}} />
+        <div className="absolute top-2 left-2 w-8 h-8 border-l-2 border-t-2 border-amber-600/30" />
+      </div>
+      <div className="absolute top-0 right-0 w-48 h-48 pointer-events-none opacity-30">
+        <div className="border-r-4 border-t-4 border-amber-700/40 w-full h-full" style={{borderImage: 'linear-gradient(225deg, #8B7355, #D4AF37) 1'}} />
+        <div className="absolute top-2 right-2 w-8 h-8 border-r-2 border-t-2 border-amber-600/30" />
+      </div>
+      <div className="absolute bottom-0 left-0 w-48 h-48 pointer-events-none opacity-30">
+        <div className="border-l-4 border-b-4 border-amber-700/40 w-full h-full" style={{borderImage: 'linear-gradient(45deg, #8B7355, #D4AF37) 1'}} />
+        <div className="absolute bottom-2 left-2 w-8 h-8 border-l-2 border-b-2 border-amber-600/30" />
+      </div>
+      <div className="absolute bottom-0 right-0 w-48 h-48 pointer-events-none opacity-30">
+        <div className="border-r-4 border-b-4 border-amber-700/40 w-full h-full" style={{borderImage: 'linear-gradient(315deg, #8B7355, #D4AF37) 1'}} />
+        <div className="absolute bottom-2 right-2 w-8 h-8 border-r-2 border-b-2 border-amber-600/30" />
+      </div>
+      
+      {/* Винтажные декоративные элементы */}
+      <div className="absolute top-24 left-1/2 -translate-x-1/2 w-64 h-1 bg-gradient-to-r from-transparent via-amber-700/20 to-transparent pointer-events-none" />
+      <div className="absolute top-24 left-1/2 -translate-x-1/2 flex gap-2 pointer-events-none">
+        <div className="w-2 h-2 rounded-full bg-amber-700/30" />
+        <div className="w-2 h-2 rounded-full bg-amber-600/30" />
+        <div className="w-2 h-2 rounded-full bg-amber-700/30" />
+      </div>
       
       <div className="container max-w-4xl mx-auto px-4 py-12 space-y-16 relative z-10">
         
@@ -126,8 +146,8 @@ const Index = () => {
                 {[null, null, null, null, null, 1, 2].map((day, idx) => (
                   <div
                     key={idx}
-                    className={`w-12 h-12 flex items-center justify-center rounded-full font-sans ${
-                      day ? 'bg-secondary/50 text-foreground' : ''
+                    className={`w-12 h-12 flex items-center justify-center rounded-sm font-sans ${
+                      day ? 'bg-amber-100/60 text-amber-900 border border-amber-700/20' : ''
                     }`}
                   >
                     {day || ''}
@@ -136,8 +156,8 @@ const Index = () => {
                 {[3, 4, 5, 6, 7, 8, 9].map((day) => (
                   <div
                     key={day}
-                    className={`w-12 h-12 flex items-center justify-center rounded-full font-sans text-foreground ${
-                      day === 7 ? 'bg-primary text-primary-foreground ring-4 ring-primary/30 font-bold scale-110' : 'bg-secondary/50'
+                    className={`w-12 h-12 flex items-center justify-center rounded-sm font-sans text-amber-900 border border-amber-700/20 ${
+                      day === 7 ? 'bg-amber-700 text-amber-50 ring-4 ring-amber-700/30 font-bold scale-110 vintage-shadow' : 'bg-amber-100/60'
                     }`}
                   >
                     {day}
@@ -146,7 +166,7 @@ const Index = () => {
                 {[10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31].map((day) => (
                   <div
                     key={day}
-                    className="w-12 h-12 flex items-center justify-center rounded-full bg-secondary/50 font-sans text-foreground"
+                    className="w-12 h-12 flex items-center justify-center rounded-sm bg-amber-100/60 font-sans text-amber-900 border border-amber-700/20"
                   >
                     {day}
                   </div>
@@ -159,7 +179,7 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="bg-card/80 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-primary/10 animate-scale-in relative overflow-hidden">
+          <div className="bg-amber-50/90 backdrop-blur-sm rounded-none p-8 vintage-shadow border-4 border-double border-amber-700/30 animate-scale-in relative overflow-hidden">
             {/* Декоративный фон */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none" />
             
@@ -219,7 +239,7 @@ const Index = () => {
           </div>
           
           <div className="space-y-6">
-            <Card className="p-6 hover:shadow-xl transition-all hover:scale-[1.02] border-l-4 border-l-primary/50 bg-card/80 backdrop-blur-sm">
+            <Card className="p-6 hover:shadow-xl transition-all hover:scale-[1.02] border-l-4 border-l-amber-700/50 bg-amber-50/80 backdrop-blur-sm vintage-shadow">
               <div className="flex items-start gap-4">
                 <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-3 rounded-full ring-2 ring-primary/10">
                   <Icon name="Clock" className="text-primary" size={24} />
@@ -235,7 +255,7 @@ const Index = () => {
               </div>
             </Card>
 
-            <Card className="p-6 hover:shadow-xl transition-all hover:scale-[1.02] border-l-4 border-l-primary/50 bg-card/80 backdrop-blur-sm">
+            <Card className="p-6 hover:shadow-xl transition-all hover:scale-[1.02] border-l-4 border-l-amber-700/50 bg-amber-50/80 backdrop-blur-sm vintage-shadow">
               <div className="flex items-start gap-4">
                 <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-3 rounded-full ring-2 ring-primary/10">
                   <Icon name="Camera" className="text-primary" size={24} />
@@ -250,7 +270,7 @@ const Index = () => {
               </div>
             </Card>
 
-            <Card className="p-6 hover:shadow-xl transition-all hover:scale-[1.02] border-l-4 border-l-accent/50 bg-card/80 backdrop-blur-sm">
+            <Card className="p-6 hover:shadow-xl transition-all hover:scale-[1.02] border-l-4 border-l-amber-600/50 bg-amber-50/80 backdrop-blur-sm vintage-shadow">
               <div className="flex items-start gap-4">
                 <div className="bg-gradient-to-br from-accent/20 to-accent/5 p-3 rounded-full ring-2 ring-accent/10">
                   <Icon name="Sparkles" className="text-accent" size={24} />
@@ -326,8 +346,8 @@ const Index = () => {
             </div>
             <div className="h-px w-32 mx-auto bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
           </div>
-          <Card className="p-8 text-center space-y-6 shadow-2xl border border-accent/10 bg-card/90 backdrop-blur-sm relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none" />
+          <Card className="p-8 text-center space-y-6 vintage-shadow border-4 border-double border-amber-700/30 bg-amber-50/90 backdrop-blur-sm relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-amber-900/5 via-transparent to-amber-700/5 pointer-events-none" />
             <div className="relative z-10">
               <Icon name="Sparkles" className="mx-auto mb-4 text-primary" size={48} />
               <p className="font-serif text-3xl text-accent mb-2">Cocktail</p>
@@ -347,8 +367,8 @@ const Index = () => {
             </div>
             <div className="h-px w-32 mx-auto bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
           </div>
-          <Card className="p-8 shadow-2xl border border-primary/10 bg-card/90 backdrop-blur-sm relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-primary/5 pointer-events-none" />
+          <Card className="p-8 vintage-shadow border-4 border-double border-amber-700/30 bg-amber-50/90 backdrop-blur-sm relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-amber-700/5 via-transparent to-amber-900/5 pointer-events-none" />
             <div className="relative z-10 text-center">
               <Icon name="Gift" className="mx-auto mb-4 text-primary" size={48} />
               <p className="font-serif text-xl text-foreground leading-relaxed max-w-2xl mx-auto">
@@ -370,7 +390,7 @@ const Index = () => {
             </div>
             <div className="h-px w-32 mx-auto bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
           </div>
-          <Card className="p-8 max-w-2xl mx-auto shadow-2xl border border-accent/10 bg-card/90 backdrop-blur-sm relative overflow-hidden">
+          <Card className="p-8 max-w-2xl mx-auto vintage-shadow border-4 border-double border-amber-700/30 bg-amber-50/90 backdrop-blur-sm relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none" />
             <div className="relative z-10">
               <p className="font-serif text-xl text-foreground mb-6 text-center">

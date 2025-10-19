@@ -101,3 +101,59 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .vintage-texture {
+    position: relative;
+  }
+
+  .vintage-texture::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.03) 2px,
+        rgba(0, 0, 0, 0.03) 4px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.03) 2px,
+        rgba(0, 0, 0, 0.03) 4px
+      );
+    pointer-events: none;
+    opacity: 0.4;
+  }
+
+  .vintage-texture::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at center,
+      transparent 0%,
+      rgba(101, 67, 33, 0.1) 100%
+    );
+    pointer-events: none;
+  }
+
+  .vintage-border {
+    border-image: linear-gradient(45deg, #8b7355, #d4af37, #8b7355) 1;
+  }
+
+  .vintage-shadow {
+    box-shadow:
+      0 1px 2px rgba(101, 67, 33, 0.1),
+      0 4px 8px rgba(101, 67, 33, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .sepia-tone {
+    filter: sepia(0.15) contrast(1.05);
+  }
+}
