@@ -1,9 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import Icon from '@/components/ui/icon';
 
 const WeddingDate = new Date('2026-08-07T14:15:00');
@@ -20,12 +16,6 @@ const Index = () => {
     hours: 0,
     minutes: 0,
     seconds: 0
-  });
-
-  const [formData, setFormData] = useState({
-    name: '',
-    guests: '1',
-    attending: 'yes'
   });
 
   useEffect(() => {
@@ -45,12 +35,6 @@ const Index = () => {
 
     return () => clearInterval(timer);
   }, []);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Спасибо! Ваш ответ принят.');
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20">
@@ -85,7 +69,17 @@ const Index = () => {
               </div>
               
               <div className="grid grid-cols-7 gap-2">
-                {[1, 2, 3, 4, 5, 6, 7].map((day) => (
+                {[null, null, null, null, 1, 2, 3].map((day, idx) => (
+                  <div
+                    key={idx}
+                    className={`w-12 h-12 flex items-center justify-center rounded-full font-sans ${
+                      day ? 'bg-secondary/50 text-foreground' : ''
+                    }`}
+                  >
+                    {day || ''}
+                  </div>
+                ))}
+                {[4, 5, 6, 7, 8, 9, 10].map((day) => (
                   <div
                     key={day}
                     className={`w-12 h-12 flex items-center justify-center rounded-full font-sans text-foreground ${
@@ -95,7 +89,7 @@ const Index = () => {
                     {day}
                   </div>
                 ))}
-                {[8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31].map((day) => (
+                {[11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31].map((day) => (
                   <div
                     key={day}
                     className="w-12 h-12 flex items-center justify-center rounded-full bg-secondary/50 font-sans text-foreground"
@@ -182,7 +176,7 @@ const Index = () => {
                   </p>
                   <div className="w-full h-64 rounded-lg overflow-hidden">
                     <iframe
-                      src="https://yandex.ru/map-widget/v1/?ll=60.597465%2C56.838011&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NjczMTAxNRJP0KDQvtGB0YHQuNGPLCDQldC60LDRgtC10YDQuNC90LHRg9GA0LMsINGD0LvQuNGG0LAg0JPQsNCz0LDRgNC40L3QsCwgMzDQsCIKDWCvTEIVAL9cQg%2C%2C&z=16"
+                      src="https://yandex.ru/map-widget/v1/?ll=60.597465%2C56.838011&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NjczMTAxNRJP0KDQvtGB0YHQuNGPLCDQldC60LDRgtC10YDQuNC90LHRg9GA0LMsINGD0LvQuNGG0LAg0JPQsNCz0LDRgNC40L3QsCwgMzDQsCIKDWCvTEIVAL9cQg%2C%2C&z=16&pt=60.597465,56.838011,pm2rdm"
                       width="100%"
                       height="100%"
                       frameBorder="0"
@@ -235,64 +229,6 @@ const Index = () => {
               Если вы хотите порадовать нас подарком, мы будем благодарны за конверт, 
               который поможет нам воплотить мечты о нашем будущем вместе.
             </p>
-          </Card>
-        </section>
-
-        <section className="space-y-6 animate-fade-in">
-          <h2 className="font-serif text-5xl text-center text-primary">Подтверждение присутствия</h2>
-          <Card className="p-8 max-w-2xl mx-auto">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-2">
-                <Label htmlFor="name" className="font-sans">Ваше имя</Label>
-                <Input
-                  id="name"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  required
-                  className="font-sans"
-                  placeholder="Введите ваше имя"
-                />
-              </div>
-
-              <div className="space-y-3">
-                <Label className="font-sans">Вы придете?</Label>
-                <RadioGroup
-                  value={formData.attending}
-                  onValueChange={(value) => setFormData({ ...formData, attending: value })}
-                >
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="yes" id="yes" />
-                    <Label htmlFor="yes" className="font-sans cursor-pointer">Да, обязательно!</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="no" id="no" />
-                    <Label htmlFor="no" className="font-sans cursor-pointer">К сожалению, не смогу</Label>
-                  </div>
-                </RadioGroup>
-              </div>
-
-              {formData.attending === 'yes' && (
-                <div className="space-y-2 animate-fade-in">
-                  <Label htmlFor="guests" className="font-sans">Количество гостей</Label>
-                  <select
-                    id="guests"
-                    value={formData.guests}
-                    onChange={(e) => setFormData({ ...formData, guests: e.target.value })}
-                    className="w-full p-2 border rounded-md font-sans bg-background"
-                  >
-                    {[1, 2, 3, 4, 5].map((num) => (
-                      <option key={num} value={num}>
-                        {num} {num === 1 ? 'человек' : num < 5 ? 'человека' : 'человек'}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              )}
-
-              <Button type="submit" className="w-full font-sans" size="lg">
-                Отправить
-              </Button>
-            </form>
           </Card>
         </section>
 
