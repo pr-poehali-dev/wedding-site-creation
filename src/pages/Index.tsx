@@ -176,7 +176,7 @@ const Index = () => {
                   </p>
                   <div className="w-full h-64 rounded-lg overflow-hidden mb-3">
                     <iframe
-                      src="https://yandex.ru/map-widget/v1/?ll=60.597465%2C56.838011&z=16&pt=60.597465,56.838011,pm2rdm"
+                      src="https://yandex.ru/map-widget/v1/?ll=60.646091%2C56.834186&z=16&pt=60.646091,56.834186,pm2rdm"
                       width="100%"
                       height="100%"
                       frameBorder="0"
@@ -185,7 +185,7 @@ const Index = () => {
                     />
                   </div>
                   <a 
-                    href="https://yandex.ru/maps/?rtext=~56.838011,60.597465" 
+                    href="https://yandex.ru/maps/?rtext=~56.834186,60.646091" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-md hover:bg-primary/90 transition-colors font-sans"
