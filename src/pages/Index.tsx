@@ -6,8 +6,8 @@ const WeddingDate = new Date('2026-08-07T14:15:00');
 
 const galleryImages = [
   'https://cdn.poehali.dev/files/47cd4b2c-f766-4e49-b728-fa316ae689a3.jpg',
-  'https://cdn.poehali.dev/files/2edd5cd6-2798-4a87-a1b6-e257f810df65.jpg',
-  'https://cdn.poehali.dev/files/6d18faf1-cd85-4673-bc1e-395995960630.jpg'
+  'https://cdn.poehali.dev/files/6d18faf1-cd85-4673-bc1e-395995960630.jpg',
+  'https://cdn.poehali.dev/files/2edd5cd6-2798-4a87-a1b6-e257f810df65.jpg'
 ];
 
 const Index = () => {
