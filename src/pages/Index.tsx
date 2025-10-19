@@ -69,7 +69,7 @@ const Index = () => {
               </div>
               
               <div className="grid grid-cols-7 gap-2">
-                {[null, null, null, null, 1, 2, 3].map((day, idx) => (
+                {[null, null, null, null, null, 1, 2].map((day, idx) => (
                   <div
                     key={idx}
                     className={`w-12 h-12 flex items-center justify-center rounded-full font-sans ${
@@ -79,7 +79,7 @@ const Index = () => {
                     {day || ''}
                   </div>
                 ))}
-                {[4, 5, 6, 7, 8, 9, 10].map((day) => (
+                {[3, 4, 5, 6, 7, 8, 9].map((day) => (
                   <div
                     key={day}
                     className={`w-12 h-12 flex items-center justify-center rounded-full font-sans text-foreground ${
@@ -89,7 +89,7 @@ const Index = () => {
                     {day}
                   </div>
                 ))}
-                {[11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31].map((day) => (
+                {[10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31].map((day) => (
                   <div
                     key={day}
                     className="w-12 h-12 flex items-center justify-center rounded-full bg-secondary/50 font-sans text-foreground"
@@ -176,7 +176,7 @@ const Index = () => {
                   </p>
                   <div className="w-full h-64 rounded-lg overflow-hidden">
                     <iframe
-                      src="https://yandex.ru/map-widget/v1/?ll=60.597465%2C56.838011&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NjczMTAxNRJP0KDQvtGB0YHQuNGPLCDQldC60LDRgtC10YDQuNC90LHRg9GA0LMsINGD0LvQuNGG0LAg0JPQsNCz0LDRgNC40L3QsCwgMzDQsCIKDWCvTEIVAL9cQg%2C%2C&z=16&pt=60.597465,56.838011,pm2rdm"
+                      src="https://yandex.ru/map-widget/v1/?ll=60.597465%2C56.838011&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NjczMTAxNRJP0KDQvtGB0YHQuNGPLCDQldC60LDRgtC10YDQuNC90LHRg9GA0LMsINGD0LvQuNGG0LAg0JPQsNCz0LDRgNC40L3QsCwgMzDQsCIKDWCvTEIVAL9cQg%2C%2C&z=16"
                       width="100%"
                       height="100%"
                       frameBorder="0"
