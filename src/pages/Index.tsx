@@ -5,9 +5,9 @@ import Icon from '@/components/ui/icon';
 const WeddingDate = new Date('2026-08-07T14:15:00');
 
 const galleryImages = [
-  'https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/1550b182-fc11-40a3-a6c8-f83ef2880d1b.jpg',
-  'https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/142f446f-3ee4-444f-a217-578b39c8e69a.jpg',
-  'https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/95685c63-53ca-41bc-b7b0-4d0b935757fa.jpg'
+  'https://cdn.poehali.dev/files/47cd4b2c-f766-4e49-b728-fa316ae689a3.jpg',
+  'https://cdn.poehali.dev/files/2edd5cd6-2798-4a87-a1b6-e257f810df65.jpg',
+  'https://cdn.poehali.dev/files/6d18faf1-cd85-4673-bc1e-395995960630.jpg'
 ];
 
 const Index = () => {
