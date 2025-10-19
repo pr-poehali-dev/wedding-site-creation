@@ -37,27 +37,43 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20 relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-64 h-64 opacity-20 pointer-events-none">
-        <img src="https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/6004a1ea-058a-416f-a4b8-457977aa7764.jpg" alt="" className="w-full h-full object-contain" />
+    <div className="min-h-screen bg-gradient-to-br from-background via-secondary/10 to-accent/5 relative overflow-hidden">
+      {/* Декоративные элементы по углам */}
+      <div className="absolute top-0 left-0 w-96 h-96 opacity-10 pointer-events-none animate-pulse">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-radial from-primary/20 to-transparent rounded-full blur-3xl" />
       </div>
-      <div className="absolute top-20 right-0 w-48 h-48 opacity-20 pointer-events-none">
-        <img src="https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/04d30e20-b8da-48e5-820b-3b416afaa147.jpg" alt="" className="w-full h-full object-contain" />
+      <div className="absolute top-0 right-0 w-80 h-80 opacity-10 pointer-events-none animate-pulse" style={{animationDelay: '1s'}}>
+        <div className="absolute top-0 right-0 w-full h-full bg-gradient-radial from-accent/20 to-transparent rounded-full blur-3xl" />
       </div>
-      <div className="absolute bottom-32 left-10 w-56 h-56 opacity-15 pointer-events-none transform rotate-45">
-        <img src="https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/04d30e20-b8da-48e5-820b-3b416afaa147.jpg" alt="" className="w-full h-full object-contain" />
+      <div className="absolute bottom-0 left-0 w-72 h-72 opacity-10 pointer-events-none animate-pulse" style={{animationDelay: '2s'}}>
+        <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-radial from-secondary/30 to-transparent rounded-full blur-3xl" />
       </div>
-      <div className="absolute bottom-64 right-20 w-40 h-40 opacity-15 pointer-events-none">
-        <img src="https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/6004a1ea-058a-416f-a4b8-457977aa7764.jpg" alt="" className="w-full h-full object-contain transform scale-x-[-1]" />
-      </div>
+      
+      {/* Декоративные линии */}
+      <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+      <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/10 to-transparent" />
       
       <div className="container max-w-4xl mx-auto px-4 py-12 space-y-16 relative z-10">
         
         <section className="text-center space-y-8 animate-fade-in">
           <div className="space-y-6">
-            <h1 className="font-serif text-6xl md:text-8xl text-primary mb-6">
+            {/* Декоративный разделитель сверху */}
+            <div className="flex items-center justify-center gap-4 mb-8">
+              <div className="h-px w-24 bg-gradient-to-r from-transparent to-primary/30" />
+              <Icon name="Heart" className="text-primary" size={20} />
+              <div className="h-px w-24 bg-gradient-to-l from-transparent to-primary/30" />
+            </div>
+            
+            <h1 className="font-serif text-6xl md:text-8xl text-primary mb-6 drop-shadow-lg">
               Лев & Яна
             </h1>
+            
+            {/* Декоративный разделитель снизу */}
+            <div className="flex items-center justify-center gap-4 mt-4">
+              <div className="h-px w-24 bg-gradient-to-r from-transparent to-primary/30" />
+              <Icon name="Sparkles" className="text-accent" size={16} />
+              <div className="h-px w-24 bg-gradient-to-l from-transparent to-primary/30" />
+            </div>
             <div className="max-w-3xl mx-auto space-y-4">
               <p className="font-serif text-2xl text-primary">
                 Дорогой гость!
@@ -118,37 +134,46 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="bg-card rounded-lg p-8 shadow-lg animate-scale-in">
-            <h2 className="font-serif text-3xl text-primary mb-6">До свадьбы осталось</h2>
-            <div className="grid grid-cols-4 gap-4">
-              {[
-                { value: timeLeft.days, label: 'Дней' },
-                { value: timeLeft.hours, label: 'Часов' },
-                { value: timeLeft.minutes, label: 'Минут' },
-                { value: timeLeft.seconds, label: 'Секунд' }
-              ].map((item) => (
-                <div key={item.label} className="text-center">
-                  <div className="text-4xl md:text-5xl font-bold text-accent font-serif">
-                    {item.value}
+          <div className="bg-card/80 backdrop-blur-sm rounded-2xl p-8 shadow-2xl border border-primary/10 animate-scale-in relative overflow-hidden">
+            {/* Декоративный фон */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none" />
+            
+            <div className="relative z-10">
+              <h2 className="font-serif text-3xl text-primary mb-6">До свадьбы осталось</h2>
+              <div className="grid grid-cols-4 gap-4">
+                {[
+                  { value: timeLeft.days, label: 'Дней', icon: 'Calendar' },
+                  { value: timeLeft.hours, label: 'Часов', icon: 'Clock' },
+                  { value: timeLeft.minutes, label: 'Минут', icon: 'Timer' },
+                  { value: timeLeft.seconds, label: 'Секунд', icon: 'Zap' }
+                ].map((item) => (
+                  <div key={item.label} className="text-center bg-background/50 rounded-xl p-4 border border-primary/5 hover:border-primary/20 transition-all">
+                    <Icon name={item.icon as any} className="text-primary/40 mx-auto mb-2" size={20} />
+                    <div className="text-4xl md:text-5xl font-bold text-accent font-serif">
+                      {item.value}
+                    </div>
+                    <div className="text-sm text-muted-foreground font-sans mt-1">
+                      {item.label}
+                    </div>
                   </div>
-                  <div className="text-sm text-muted-foreground font-sans mt-1">
-                    {item.label}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
         <section className="flex justify-center animate-fade-in">
           <div className="relative max-w-md w-full">
-            <div className="absolute -top-3 -left-3 w-16 h-16 opacity-40">
-              <img src="https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/6004a1ea-058a-416f-a4b8-457977aa7764.jpg" alt="" className="w-full h-full object-contain" />
-            </div>
-            <div className="absolute -bottom-3 -right-3 w-16 h-16 opacity-40 transform scale-x-[-1]">
-              <img src="https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/04d30e20-b8da-48e5-820b-3b416afaa147.jpg" alt="" className="w-full h-full object-contain" />
-            </div>
-            <div className="rounded-xl overflow-hidden shadow-xl border-2 border-card relative z-10">
+            {/* Декоративная рамка */}
+            <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-accent/10 to-primary/20 rounded-3xl blur-2xl opacity-50" />
+            
+            {/* Угловые украшения */}
+            <div className="absolute -top-6 -left-6 w-12 h-12 border-t-2 border-l-2 border-primary/40 rounded-tl-xl" />
+            <div className="absolute -top-6 -right-6 w-12 h-12 border-t-2 border-r-2 border-accent/40 rounded-tr-xl" />
+            <div className="absolute -bottom-6 -left-6 w-12 h-12 border-b-2 border-l-2 border-accent/40 rounded-bl-xl" />
+            <div className="absolute -bottom-6 -right-6 w-12 h-12 border-b-2 border-r-2 border-primary/40 rounded-br-xl" />
+            
+            <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white/50 relative z-10 ring-1 ring-primary/10">
               <img 
                 src="https://cdn.poehali.dev/files/4af12923-fef6-4557-93a3-45ef6d1535de.jpg" 
                 alt="Лев и Яна" 
@@ -159,12 +184,19 @@ const Index = () => {
         </section>
 
         <section className="space-y-8 animate-fade-in">
-          <h2 className="font-serif text-5xl text-center text-primary">Программа дня</h2>
+          <div className="text-center space-y-4">
+            <div className="flex items-center justify-center gap-3">
+              <Icon name="Calendar" className="text-primary" size={28} />
+              <h2 className="font-serif text-5xl text-primary">Программа дня</h2>
+              <Icon name="Calendar" className="text-primary" size={28} />
+            </div>
+            <div className="h-px w-32 mx-auto bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+          </div>
           
           <div className="space-y-6">
-            <Card className="p-6 hover:shadow-lg transition-shadow">
+            <Card className="p-6 hover:shadow-xl transition-all hover:scale-[1.02] border-l-4 border-l-primary/50 bg-card/80 backdrop-blur-sm">
               <div className="flex items-start gap-4">
-                <div className="bg-primary/10 p-3 rounded-full">
+                <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-3 rounded-full ring-2 ring-primary/10">
                   <Icon name="Clock" className="text-primary" size={24} />
                 </div>
                 <div className="flex-1">
@@ -178,9 +210,9 @@ const Index = () => {
               </div>
             </Card>
 
-            <Card className="p-6 hover:shadow-lg transition-shadow">
+            <Card className="p-6 hover:shadow-xl transition-all hover:scale-[1.02] border-l-4 border-l-primary/50 bg-card/80 backdrop-blur-sm">
               <div className="flex items-start gap-4">
-                <div className="bg-primary/10 p-3 rounded-full">
+                <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-3 rounded-full ring-2 ring-primary/10">
                   <Icon name="Camera" className="text-primary" size={24} />
                 </div>
                 <div className="flex-1">
@@ -193,10 +225,10 @@ const Index = () => {
               </div>
             </Card>
 
-            <Card className="p-6 hover:shadow-lg transition-shadow">
+            <Card className="p-6 hover:shadow-xl transition-all hover:scale-[1.02] border-l-4 border-l-accent/50 bg-card/80 backdrop-blur-sm">
               <div className="flex items-start gap-4">
-                <div className="bg-primary/10 p-3 rounded-full">
-                  <Icon name="Sparkles" className="text-primary" size={24} />
+                <div className="bg-gradient-to-br from-accent/20 to-accent/5 p-3 rounded-full ring-2 ring-accent/10">
+                  <Icon name="Sparkles" className="text-accent" size={24} />
                 </div>
                 <div className="flex-1">
                   <div className="font-serif text-2xl text-primary mb-2">16:00 — 23:00</div>
@@ -231,86 +263,129 @@ const Index = () => {
         </section>
 
         <section className="space-y-8 animate-fade-in">
-          <h2 className="font-serif text-5xl text-center text-primary">Фотогалерея</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="text-center space-y-4">
+            <div className="flex items-center justify-center gap-3">
+              <Icon name="Camera" className="text-primary" size={28} />
+              <h2 className="font-serif text-5xl text-primary">Фотогалерея</h2>
+              <Icon name="Camera" className="text-primary" size={28} />
+            </div>
+            <div className="h-px w-32 mx-auto bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {galleryImages.map((image, index) => (
               <div
                 key={index}
-                className="aspect-square rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow hover:scale-105 transform duration-300"
+                className="group aspect-square rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:scale-[1.05] ring-2 ring-primary/10 hover:ring-primary/30 relative"
               >
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
                 <img
                   src={image}
                   alt={`Фото ${index + 1}`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
+                <div className="absolute bottom-4 left-4 right-4 text-white font-serif text-lg opacity-0 group-hover:opacity-100 transition-opacity z-20">
+                  <Icon name="Heart" className="inline mr-2" size={20} />
+                  Grand Hall
+                </div>
               </div>
             ))}
           </div>
         </section>
 
-        <section className="text-center space-y-6 animate-fade-in">
-          <h2 className="font-serif text-5xl text-primary">Дресс-код</h2>
-          <Card className="p-8 bg-gradient-to-br from-card to-secondary/30">
-            <Icon name="Sparkles" className="mx-auto mb-4 text-primary" size={48} />
-            <p className="font-serif text-3xl text-accent mb-2">Cocktail</p>
-            <p className="text-muted-foreground font-sans max-w-md mx-auto">
-              Приглашаем вас разделить с нами радость этого дня в элегантных нарядах
-            </p>
-          </Card>
-        </section>
-
-        <section className="text-center space-y-6 animate-fade-in">
-          <h2 className="font-serif text-5xl text-primary">Подарки</h2>
-          <Card className="p-8">
-            <Icon name="Gift" className="mx-auto mb-4 text-primary" size={48} />
-            <p className="font-serif text-xl text-foreground leading-relaxed max-w-2xl mx-auto">
-              Дорогие гости! Самый ценный подарок для нас — ваше присутствие на нашем торжестве. 
-              Цветы дарить не нужно — мы создали особенную атмосферу, которая не требует дополнений. 
-              Если вы хотите порадовать нас подарком, мы будем благодарны за конверт, 
-              который поможет нам воплотить мечты о нашем будущем вместе.
-            </p>
-          </Card>
-        </section>
-
-        <section className="text-center space-y-6 animate-fade-in relative">
-          <div className="absolute top-0 left-0 w-32 h-32 opacity-30 pointer-events-none">
-            <img src="https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/6004a1ea-058a-416f-a4b8-457977aa7764.jpg" alt="" className="w-full h-full object-contain" />
+        <section className="space-y-8 animate-fade-in">
+          <div className="text-center space-y-4">
+            <div className="flex items-center justify-center gap-3">
+              <Icon name="Shirt" className="text-accent" size={28} />
+              <h2 className="font-serif text-5xl text-primary">Дресс-код</h2>
+              <Icon name="Shirt" className="text-accent" size={28} />
+            </div>
+            <div className="h-px w-32 mx-auto bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
           </div>
-          <div className="absolute top-0 right-0 w-32 h-32 opacity-30 pointer-events-none transform scale-x-[-1]">
-            <img src="https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/04d30e20-b8da-48e5-820b-3b416afaa147.jpg" alt="" className="w-full h-full object-contain" />
-          </div>
-          
-          <h2 className="font-serif text-5xl text-primary relative z-10">Контакты</h2>
-          <Card className="p-8 max-w-2xl mx-auto relative z-10">
-            <p className="font-serif text-xl text-foreground mb-6">
-              Остались вопросы? Напишите нам!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="https://t.me/pitonjr" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-sans"
-              >
-                <Icon name="MessageCircle" size={20} />
-                Написать Льву
-              </a>
-              <a 
-                href="https://t.me/yana_5_578" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition-colors font-sans"
-              >
-                <Icon name="MessageCircle" size={20} />
-                Написать Яне
-              </a>
+          <Card className="p-8 text-center space-y-6 shadow-2xl border border-accent/10 bg-card/90 backdrop-blur-sm relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none" />
+            <div className="relative z-10">
+              <Icon name="Sparkles" className="mx-auto mb-4 text-primary" size={48} />
+              <p className="font-serif text-3xl text-accent mb-2">Cocktail</p>
+              <p className="text-muted-foreground font-sans max-w-md mx-auto">
+                Приглашаем вас разделить с нами радость этого дня в элегантных нарядах
+              </p>
             </div>
           </Card>
         </section>
 
-        <footer className="text-center pt-12 pb-6 border-t border-border relative">
+        <section className="space-y-8 animate-fade-in">
+          <div className="text-center space-y-4">
+            <div className="flex items-center justify-center gap-3">
+              <Icon name="Gift" className="text-primary" size={28} />
+              <h2 className="font-serif text-5xl text-primary">Подарки</h2>
+              <Icon name="Gift" className="text-primary" size={28} />
+            </div>
+            <div className="h-px w-32 mx-auto bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+          </div>
+          <Card className="p-8 shadow-2xl border border-primary/10 bg-card/90 backdrop-blur-sm relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-primary/5 pointer-events-none" />
+            <div className="relative z-10 text-center">
+              <Icon name="Gift" className="mx-auto mb-4 text-primary" size={48} />
+              <p className="font-serif text-xl text-foreground leading-relaxed max-w-2xl mx-auto">
+                Дорогие гости! Самый ценный подарок для нас — ваше присутствие на нашем торжестве. 
+                Цветы дарить не нужно — мы создали особенную атмосферу, которая не требует дополнений. 
+                Если вы хотите порадовать нас подарком, мы будем благодарны за конверт, 
+                который поможет нам воплотить мечты о нашем будущем вместе.
+              </p>
+            </div>
+          </Card>
+        </section>
+
+        <section className="space-y-8 animate-fade-in">
+          <div className="text-center space-y-4">
+            <div className="flex items-center justify-center gap-3">
+              <Icon name="Phone" className="text-accent" size={28} />
+              <h2 className="font-serif text-5xl text-primary">Контакты</h2>
+              <Icon name="Phone" className="text-accent" size={28} />
+            </div>
+            <div className="h-px w-32 mx-auto bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
+          </div>
+          <Card className="p-8 max-w-2xl mx-auto shadow-2xl border border-accent/10 bg-card/90 backdrop-blur-sm relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none" />
+            <div className="relative z-10">
+              <p className="font-serif text-xl text-foreground mb-6 text-center">
+                Остались вопросы? Напишите нам!
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a 
+                  href="https://t.me/pitonjr" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-primary/90 text-primary-foreground rounded-lg hover:shadow-lg transition-all hover:scale-105 font-sans ring-2 ring-primary/20 hover:ring-primary/40"
+                >
+                  <Icon name="MessageCircle" size={20} className="group-hover:scale-110 transition-transform" />
+                  Написать Льву
+                </a>
+                <a 
+                  href="https://t.me/yana_5_578" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-accent to-accent/90 text-accent-foreground rounded-lg hover:shadow-lg transition-all hover:scale-105 font-sans ring-2 ring-accent/20 hover:ring-accent/40"
+                >
+                  <Icon name="MessageCircle" size={20} className="group-hover:scale-110 transition-transform" />
+                  Написать Яне
+                </a>
+              </div>
+            </div>
+          </Card>
+        </section>
+
+        <footer className="text-center pt-12 pb-6 border-t border-primary/10 relative">
+          <div className="flex items-center justify-center gap-4 mb-4">
+            <div className="h-px w-24 bg-gradient-to-r from-transparent to-primary/30" />
+            <Icon name="Heart" className="text-primary" size={24} />
+            <div className="h-px w-24 bg-gradient-to-l from-transparent to-primary/30" />
+          </div>
           <p className="font-serif text-2xl text-primary mb-2">До встречи на нашей свадьбе!</p>
-          <p className="text-muted-foreground font-sans">Лев & Яна • 07.08.2026</p>
+          <p className="text-muted-foreground font-sans flex items-center justify-center gap-2">
+            <Icon name="Calendar" size={16} />
+            Лев & Яна • 07.08.2026
+          </p>
         </footer>
       </div>
     </div>
