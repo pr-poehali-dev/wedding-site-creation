@@ -38,6 +38,20 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-secondary/10 to-accent/5 relative overflow-hidden">
+      {/* Декоративные круги и формы */}
+      <div className="absolute top-20 left-10 w-64 h-64 border border-primary/5 rounded-full pointer-events-none" />
+      <div className="absolute top-40 left-20 w-48 h-48 border border-accent/5 rounded-full pointer-events-none" />
+      <div className="absolute bottom-32 right-16 w-72 h-72 border border-primary/5 rounded-full pointer-events-none" />
+      <div className="absolute bottom-48 right-32 w-56 h-56 border border-accent/5 rounded-full pointer-events-none" />
+      
+      {/* Декоративные точки */}
+      <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-primary/10 rounded-full pointer-events-none" />
+      <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-accent/10 rounded-full pointer-events-none" />
+      <div className="absolute bottom-1/4 left-1/3 w-2 h-2 bg-primary/10 rounded-full pointer-events-none" />
+      <div className="absolute top-2/3 right-1/3 w-3 h-3 bg-accent/10 rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-1/4 w-1 h-1 bg-primary/15 rounded-full pointer-events-none" />
+      <div className="absolute bottom-1/3 right-1/4 w-2 h-2 bg-accent/15 rounded-full pointer-events-none" />
+      
       {/* Декоративные элементы по углам */}
       <div className="absolute top-0 left-0 w-96 h-96 opacity-10 pointer-events-none animate-pulse">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-radial from-primary/20 to-transparent rounded-full blur-3xl" />
@@ -49,9 +63,20 @@ const Index = () => {
         <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-radial from-secondary/30 to-transparent rounded-full blur-3xl" />
       </div>
       
-      {/* Декоративные линии */}
+      {/* Декоративные диагональные линии */}
+      <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-accent/5 to-transparent pointer-events-none" />
+      
+      {/* Декоративные горизонтальные линии */}
       <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
+      <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/8 to-transparent" />
       <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/10 to-transparent" />
+      
+      {/* Угловые орнаменты */}
+      <div className="absolute top-0 left-0 w-32 h-32 border-l-2 border-t-2 border-primary/10 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-32 h-32 border-r-2 border-t-2 border-accent/10 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-32 h-32 border-l-2 border-b-2 border-accent/10 pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-32 h-32 border-r-2 border-b-2 border-primary/10 pointer-events-none" />
       
       <div className="container max-w-4xl mx-auto px-4 py-12 space-y-16 relative z-10">
         
