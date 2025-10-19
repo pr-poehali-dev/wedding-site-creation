@@ -37,8 +37,21 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20">
-      <div className="container max-w-4xl mx-auto px-4 py-12 space-y-16">
+    <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20 relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-64 h-64 opacity-20 pointer-events-none">
+        <img src="https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/6004a1ea-058a-416f-a4b8-457977aa7764.jpg" alt="" className="w-full h-full object-contain" />
+      </div>
+      <div className="absolute top-20 right-0 w-48 h-48 opacity-20 pointer-events-none">
+        <img src="https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/04d30e20-b8da-48e5-820b-3b416afaa147.jpg" alt="" className="w-full h-full object-contain" />
+      </div>
+      <div className="absolute bottom-32 left-10 w-56 h-56 opacity-15 pointer-events-none transform rotate-45">
+        <img src="https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/04d30e20-b8da-48e5-820b-3b416afaa147.jpg" alt="" className="w-full h-full object-contain" />
+      </div>
+      <div className="absolute bottom-64 right-20 w-40 h-40 opacity-15 pointer-events-none">
+        <img src="https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/6004a1ea-058a-416f-a4b8-457977aa7764.jpg" alt="" className="w-full h-full object-contain transform scale-x-[-1]" />
+      </div>
+      
+      <div className="container max-w-4xl mx-auto px-4 py-12 space-y-16 relative z-10">
         
         <section className="text-center space-y-8 animate-fade-in">
           <div className="space-y-6">
@@ -241,7 +254,43 @@ const Index = () => {
           </Card>
         </section>
 
-        <footer className="text-center pt-12 pb-6 border-t border-border">
+        <section className="text-center space-y-6 animate-fade-in relative">
+          <div className="absolute top-0 left-0 w-32 h-32 opacity-30 pointer-events-none">
+            <img src="https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/6004a1ea-058a-416f-a4b8-457977aa7764.jpg" alt="" className="w-full h-full object-contain" />
+          </div>
+          <div className="absolute top-0 right-0 w-32 h-32 opacity-30 pointer-events-none transform scale-x-[-1]">
+            <img src="https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/04d30e20-b8da-48e5-820b-3b416afaa147.jpg" alt="" className="w-full h-full object-contain" />
+          </div>
+          
+          <h2 className="font-serif text-5xl text-primary relative z-10">Контакты</h2>
+          <Card className="p-8 max-w-2xl mx-auto relative z-10">
+            <p className="font-serif text-xl text-foreground mb-6">
+              Остались вопросы? Напишите нам!
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a 
+                href="https://t.me/pitonjr" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors font-sans"
+              >
+                <Icon name="MessageCircle" size={20} />
+                Написать Льву
+              </a>
+              <a 
+                href="https://t.me/yana_5_578" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition-colors font-sans"
+              >
+                <Icon name="MessageCircle" size={20} />
+                Написать Яне
+              </a>
+            </div>
+          </Card>
+        </section>
+
+        <footer className="text-center pt-12 pb-6 border-t border-border relative">
           <p className="font-serif text-2xl text-primary mb-2">До встречи на нашей свадьбе!</p>
           <p className="text-muted-foreground font-sans">Лев & Яна • 07.08.2026</p>
         </footer>
