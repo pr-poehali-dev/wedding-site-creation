@@ -37,21 +37,46 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-secondary/10 to-accent/5 relative overflow-hidden">
-      {/* Декоративные элементы по углам */}
-      <div className="absolute top-0 left-0 w-96 h-96 opacity-10 pointer-events-none animate-pulse">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-radial from-primary/20 to-transparent rounded-full blur-3xl" />
-      </div>
-      <div className="absolute top-0 right-0 w-80 h-80 opacity-10 pointer-events-none animate-pulse" style={{animationDelay: '1s'}}>
-        <div className="absolute top-0 right-0 w-full h-full bg-gradient-radial from-accent/20 to-transparent rounded-full blur-3xl" />
-      </div>
-      <div className="absolute bottom-0 left-0 w-72 h-72 opacity-10 pointer-events-none animate-pulse" style={{animationDelay: '2s'}}>
-        <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-radial from-secondary/30 to-transparent rounded-full blur-3xl" />
+    <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-emerald-950/30 via-background to-amber-950/20">
+      {/* Основной декоративный фон с тканью, жемчугом и золотом */}
+      <div className="absolute inset-0 opacity-15 pointer-events-none">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{backgroundImage: 'url(https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/1385b5cb-3a7d-4048-9893-69e8e2af8ca9.jpg)'}}
+        />
       </div>
       
-      {/* Декоративные линии */}
-      <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
-      <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/10 to-transparent" />
+      {/* Дополнительные декоративные слои */}
+      <div className="absolute top-0 right-0 w-1/2 h-1/2 opacity-20 pointer-events-none">
+        <img 
+          src="https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/914c5f99-625b-4588-a7b6-7200a539d6ec.jpg" 
+          alt="" 
+          className="w-full h-full object-cover mix-blend-multiply"
+        />
+      </div>
+      
+      <div className="absolute bottom-0 left-0 w-1/2 h-1/2 opacity-20 pointer-events-none">
+        <img 
+          src="https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/cf4cf536-2e15-4f88-ba2d-0699df0d7516.jpg" 
+          alt="" 
+          className="w-full h-full object-cover mix-blend-multiply"
+        />
+      </div>
+      
+      {/* Золотые акценты */}
+      <div className="absolute top-0 left-0 w-96 h-96 opacity-10 pointer-events-none animate-pulse">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-radial from-amber-500/30 to-transparent rounded-full blur-3xl" />
+      </div>
+      <div className="absolute top-0 right-0 w-80 h-80 opacity-10 pointer-events-none animate-pulse" style={{animationDelay: '1s'}}>
+        <div className="absolute top-0 right-0 w-full h-full bg-gradient-radial from-emerald-500/30 to-transparent rounded-full blur-3xl" />
+      </div>
+      <div className="absolute bottom-0 left-0 w-72 h-72 opacity-10 pointer-events-none animate-pulse" style={{animationDelay: '2s'}}>
+        <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-radial from-amber-400/30 to-transparent rounded-full blur-3xl" />
+      </div>
+      
+      {/* Жемчужные нити */}
+      <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-200/20 to-transparent" />
       
       <div className="container max-w-4xl mx-auto px-4 py-12 space-y-16 relative z-10">
         
