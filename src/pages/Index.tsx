@@ -38,39 +38,82 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-stone-100 to-amber-50/50 relative overflow-hidden vintage-texture sepia-tone">
-      {/* Декоративные круги и формы */}
-      <div className="absolute top-20 left-10 w-64 h-64 border border-primary/5 rounded-full pointer-events-none" />
-      <div className="absolute top-40 left-20 w-48 h-48 border border-accent/5 rounded-full pointer-events-none" />
-      <div className="absolute bottom-32 right-16 w-72 h-72 border border-primary/5 rounded-full pointer-events-none" />
-      <div className="absolute bottom-48 right-32 w-56 h-56 border border-accent/5 rounded-full pointer-events-none" />
+      {/* Винтажный узор из тонких линий */}
+      <div className="absolute inset-0 opacity-[0.08] pointer-events-none" style={{
+        backgroundImage: `
+          repeating-linear-gradient(0deg, transparent, transparent 50px, #8B7355 50px, #8B7355 51px),
+          repeating-linear-gradient(90deg, transparent, transparent 50px, #8B7355 50px, #8B7355 51px)
+        `
+      }} />
       
-      {/* Декоративные точки */}
-      <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-primary/10 rounded-full pointer-events-none" />
-      <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-accent/10 rounded-full pointer-events-none" />
-      <div className="absolute bottom-1/4 left-1/3 w-2 h-2 bg-primary/10 rounded-full pointer-events-none" />
-      <div className="absolute top-2/3 right-1/3 w-3 h-3 bg-accent/10 rounded-full pointer-events-none" />
-      <div className="absolute top-1/2 left-1/4 w-1 h-1 bg-primary/15 rounded-full pointer-events-none" />
-      <div className="absolute bottom-1/3 right-1/4 w-2 h-2 bg-accent/15 rounded-full pointer-events-none" />
+      {/* Дамасский узор - диагональные ромбы */}
+      <div className="absolute inset-0 opacity-[0.04] pointer-events-none" style={{
+        backgroundImage: `
+          repeating-linear-gradient(45deg, transparent, transparent 100px, #D4AF37 100px, #D4AF37 102px),
+          repeating-linear-gradient(-45deg, transparent, transparent 100px, #D4AF37 100px, #D4AF37 102px)
+        `
+      }} />
       
-      {/* Декоративные элементы по углам */}
-      <div className="absolute top-0 left-0 w-96 h-96 opacity-10 pointer-events-none animate-pulse">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-radial from-primary/20 to-transparent rounded-full blur-3xl" />
+      {/* Декоративные винтажные круги с узорами */}
+      <div className="absolute top-20 left-10 w-80 h-80 border-2 border-amber-700/10 rounded-full pointer-events-none">
+        <div className="absolute inset-4 border border-dashed border-amber-600/10 rounded-full" />
+        <div className="absolute inset-8 border border-amber-700/10 rounded-full" />
       </div>
-      <div className="absolute top-0 right-0 w-80 h-80 opacity-10 pointer-events-none animate-pulse" style={{animationDelay: '1s'}}>
-        <div className="absolute top-0 right-0 w-full h-full bg-gradient-radial from-accent/20 to-transparent rounded-full blur-3xl" />
+      <div className="absolute bottom-32 right-16 w-96 h-96 border-2 border-amber-700/10 rounded-full pointer-events-none">
+        <div className="absolute inset-6 border border-dashed border-amber-600/10 rounded-full" />
+        <div className="absolute inset-12 border border-amber-700/10 rounded-full" />
       </div>
-      <div className="absolute bottom-0 left-0 w-72 h-72 opacity-10 pointer-events-none animate-pulse" style={{animationDelay: '2s'}}>
-        <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-radial from-secondary/30 to-transparent rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/4 w-64 h-64 border border-amber-600/8 rounded-full pointer-events-none">
+        <div className="absolute inset-4 border border-dotted border-amber-700/8 rounded-full" />
       </div>
       
-      {/* Декоративные диагональные линии */}
-      <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
-      <div className="absolute top-0 right-1/4 w-px h-full bg-gradient-to-b from-transparent via-accent/5 to-transparent pointer-events-none" />
+      {/* Винтажные декоративные точки и звёздочки */}
+      <div className="absolute top-1/4 left-1/4 w-3 h-3 pointer-events-none">
+        <div className="absolute inset-0 bg-amber-700/15 rounded-full" />
+        <div className="absolute inset-0.5 bg-amber-50/50 rounded-full" />
+      </div>
+      <div className="absolute top-1/3 right-1/4 w-4 h-4 pointer-events-none">
+        <div className="absolute inset-0 bg-amber-700/15 rotate-45 rounded-sm" />
+        <div className="absolute inset-0 bg-amber-700/15 rounded-sm" />
+      </div>
+      <div className="absolute bottom-1/4 left-1/3 w-3 h-3 pointer-events-none">
+        <div className="absolute inset-0 bg-amber-700/15 rounded-full" />
+        <div className="absolute inset-0.5 bg-amber-50/50 rounded-full" />
+      </div>
+      <div className="absolute top-2/3 right-1/3 w-4 h-4 pointer-events-none">
+        <div className="absolute inset-0 bg-amber-700/15 rotate-45 rounded-sm" />
+        <div className="absolute inset-0 bg-amber-700/15 rounded-sm" />
+      </div>
       
-      {/* Декоративные горизонтальные линии */}
-      <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent" />
-      <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/8 to-transparent" />
-      <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/10 to-transparent" />
+      {/* Золотые световые пятна */}
+      <div className="absolute top-0 left-0 w-96 h-96 opacity-8 pointer-events-none animate-pulse">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-radial from-amber-700/20 to-transparent rounded-full blur-3xl" />
+      </div>
+      <div className="absolute top-0 right-0 w-80 h-80 opacity-8 pointer-events-none animate-pulse" style={{animationDelay: '1s'}}>
+        <div className="absolute top-0 right-0 w-full h-full bg-gradient-radial from-amber-600/20 to-transparent rounded-full blur-3xl" />
+      </div>
+      <div className="absolute bottom-0 left-0 w-72 h-72 opacity-8 pointer-events-none animate-pulse" style={{animationDelay: '2s'}}>
+        <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-radial from-amber-800/20 to-transparent rounded-full blur-3xl" />
+      </div>
+      
+      {/* Вертикальные декоративные бордюры */}
+      <div className="absolute top-0 left-[15%] h-full w-px pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-amber-700/10 to-transparent" />
+      </div>
+      <div className="absolute top-0 right-[15%] h-full w-px pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-amber-700/10 to-transparent" />
+      </div>
+      
+      {/* Горизонтальные декоративные бордюры */}
+      <div className="absolute top-[20%] left-0 w-full h-px pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-700/10 to-transparent" />
+      </div>
+      <div className="absolute top-[50%] left-0 w-full h-px pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-700/8 to-transparent" />
+      </div>
+      <div className="absolute top-[80%] left-0 w-full h-px pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-amber-700/10 to-transparent" />
+      </div>
       
       {/* Угловые винтажные орнаменты */}
       <div className="absolute top-0 left-0 w-48 h-48 pointer-events-none opacity-30">
