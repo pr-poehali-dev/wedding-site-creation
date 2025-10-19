@@ -8,6 +8,12 @@ import Icon from '@/components/ui/icon';
 
 const WeddingDate = new Date('2026-08-07T14:15:00');
 
+const galleryImages = [
+  'https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/1550b182-fc11-40a3-a6c8-f83ef2880d1b.jpg',
+  'https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/142f446f-3ee4-444f-a217-578b39c8e69a.jpg',
+  'https://cdn.poehali.dev/projects/c2ee31bf-3bd3-4c80-b7de-9a5abd77ea87/files/95685c63-53ca-41bc-b7b0-4d0b935757fa.jpg'
+];
+
 const Index = () => {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -47,13 +53,19 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-secondary/20">
+    <div className="min-h-screen bg-gradient-to-b from-background to-secondary/20">
       <div className="container max-w-4xl mx-auto px-4 py-12 space-y-16">
         
         <section className="text-center space-y-8 animate-fade-in">
-          <h1 className="font-serif text-6xl md:text-8xl text-primary mb-2">
-            Лев & Яна
-          </h1>
+          <div className="space-y-4">
+            <h1 className="font-serif text-6xl md:text-8xl text-primary mb-2">
+              Лев & Яна
+            </h1>
+            <p className="font-serif text-2xl md:text-3xl text-foreground/80 max-w-2xl mx-auto leading-relaxed">
+              Приглашаем вас разделить с нами радость самого важного дня в нашей жизни. 
+              Будем счастливы видеть вас среди близких людей на нашем торжестве!
+            </p>
+          </div>
           
           <div className="inline-block">
             <div className="relative">
@@ -137,18 +149,61 @@ const Index = () => {
             <Card className="p-6 hover:shadow-lg transition-shadow">
               <div className="flex items-start gap-4">
                 <div className="bg-primary/10 p-3 rounded-full">
+                  <Icon name="Camera" className="text-primary" size={24} />
+                </div>
+                <div className="flex-1">
+                  <div className="font-serif text-2xl text-primary mb-2">15:00 — 16:00</div>
+                  <h3 className="font-sans font-semibold text-lg mb-2">Фотосессия</h3>
+                  <p className="text-muted-foreground font-sans">
+                    Прогулка и создание прекрасных воспоминаний
+                  </p>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6 hover:shadow-lg transition-shadow">
+              <div className="flex items-start gap-4">
+                <div className="bg-primary/10 p-3 rounded-full">
                   <Icon name="Sparkles" className="text-primary" size={24} />
                 </div>
                 <div className="flex-1">
                   <div className="font-serif text-2xl text-primary mb-2">16:00 — 23:00</div>
                   <h3 className="font-sans font-semibold text-lg mb-2">Праздничный банкет</h3>
-                  <p className="text-muted-foreground font-sans">
+                  <p className="text-muted-foreground font-sans mb-4">
                     <Icon name="MapPin" className="inline mr-1" size={16} />
                     г. Екатеринбург, ул. Гагарина, 30а, отель Grand Hall
                   </p>
+                  <div className="w-full h-64 rounded-lg overflow-hidden">
+                    <iframe
+                      src="https://yandex.ru/map-widget/v1/?ll=60.597465%2C56.838011&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NjczMTAxNRJP0KDQvtGB0YHQuNGPLCDQldC60LDRgtC10YDQuNC90LHRg9GA0LMsINGD0LvQuNGG0LAg0JPQsNCz0LDRgNC40L3QsCwgMzDQsCIKDWCvTEIVAL9cQg%2C%2C&z=16"
+                      width="100%"
+                      height="100%"
+                      frameBorder="0"
+                      allowFullScreen
+                      className="border-0"
+                    />
+                  </div>
                 </div>
               </div>
             </Card>
+          </div>
+        </section>
+
+        <section className="space-y-8 animate-fade-in">
+          <h2 className="font-serif text-5xl text-center text-primary">Фотогалерея</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {galleryImages.map((image, index) => (
+              <div
+                key={index}
+                className="aspect-square rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow hover:scale-105 transform duration-300"
+              >
+                <img
+                  src={image}
+                  alt={`Фото ${index + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
           </div>
         </section>
 
