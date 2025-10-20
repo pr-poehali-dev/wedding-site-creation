@@ -36,6 +36,26 @@ const Index = () => {
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-in');
+        }
+      });
+    }, observerOptions);
+
+    const revealElements = document.querySelectorAll('.scroll-reveal, .scroll-reveal-scale, .scroll-reveal-left, .scroll-reveal-right');
+    revealElements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-stone-100 to-amber-50/50 relative overflow-hidden vintage-texture sepia-tone">
       {/* Декоративные круги и формы */}
@@ -100,8 +120,8 @@ const Index = () => {
       
       <div className="container max-w-4xl mx-auto px-4 py-12 space-y-16 relative z-10">
         
-        <section className="text-center space-y-8 animate-fade-in">
-          <div className="space-y-6">
+        <section className="text-center space-y-8 scroll-reveal">
+          <div className="space-y-6 scroll-reveal delay-100">
             {/* Декоративный разделитель сверху */}
             <div className="flex items-center justify-center gap-4 mb-8">
               <div className="h-px w-24 bg-gradient-to-r from-transparent to-primary/30" />
@@ -132,7 +152,7 @@ const Index = () => {
             </div>
           </div>
           
-          <div className="inline-block">
+          <div className="inline-block scroll-reveal-scale delay-200">
             <div className="relative">
               <div className="grid grid-cols-7 gap-2 mb-4">
                 {['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'].map((day) => (
@@ -179,7 +199,7 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-amber-50/95 via-stone-50/90 to-amber-50/95 backdrop-blur-sm rounded-lg p-10 vintage-shadow border border-amber-700/20 shadow-2xl animate-scale-in relative overflow-hidden">
+          <div className="bg-gradient-to-br from-amber-50/95 via-stone-50/90 to-amber-50/95 backdrop-blur-sm rounded-lg p-10 vintage-shadow border border-amber-700/20 shadow-2xl scroll-reveal-scale delay-300 relative overflow-hidden">
             {/* Декоративный фон */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none" />
             
@@ -211,7 +231,7 @@ const Index = () => {
           </div>
         </section>
 
-        <section className="flex justify-center animate-fade-in">
+        <section className="flex justify-center scroll-reveal-scale">
           <div className="relative max-w-sm w-full">
             {/* Изысканная рамка */}
             <div className="absolute -inset-6 border border-amber-700/20 rounded-full" />
@@ -254,7 +274,7 @@ const Index = () => {
           </div>
           
           <div className="space-y-6">
-            <Card className="p-8 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] border border-amber-700/20 bg-gradient-to-br from-amber-50/90 via-white/80 to-amber-50/90 backdrop-blur-sm shadow-lg relative overflow-hidden">
+            <Card className="p-8 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] border border-amber-700/20 bg-gradient-to-br from-amber-50/90 via-white/80 to-amber-50/90 backdrop-blur-sm shadow-lg relative overflow-hidden scroll-reveal-left delay-200">
               <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-amber-700/60 via-amber-600/40 to-amber-700/60" />
               <div className="flex items-start gap-4">
                 <div className="bg-gradient-to-br from-amber-700/20 to-amber-600/10 p-4 rounded-full ring-2 ring-amber-700/20 shadow-md">
@@ -271,7 +291,7 @@ const Index = () => {
               </div>
             </Card>
 
-            <Card className="p-8 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] border border-amber-700/20 bg-gradient-to-br from-amber-50/90 via-white/80 to-amber-50/90 backdrop-blur-sm shadow-lg relative overflow-hidden">
+            <Card className="p-8 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] border border-amber-700/20 bg-gradient-to-br from-amber-50/90 via-white/80 to-amber-50/90 backdrop-blur-sm shadow-lg relative overflow-hidden scroll-reveal-left delay-300">
               <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-amber-700/60 via-amber-600/40 to-amber-700/60" />
               <div className="flex items-start gap-4">
                 <div className="bg-gradient-to-br from-amber-700/20 to-amber-600/10 p-4 rounded-full ring-2 ring-amber-700/20 shadow-md">
@@ -287,7 +307,7 @@ const Index = () => {
               </div>
             </Card>
 
-            <Card className="p-8 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] border border-amber-700/20 bg-gradient-to-br from-amber-50/90 via-white/80 to-amber-50/90 backdrop-blur-sm shadow-lg relative overflow-hidden">
+            <Card className="p-8 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] border border-amber-700/20 bg-gradient-to-br from-amber-50/90 via-white/80 to-amber-50/90 backdrop-blur-sm shadow-lg relative overflow-hidden scroll-reveal-left delay-400">
               <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-amber-700/60 via-amber-600/40 to-amber-700/60" />
               <div className="flex items-start gap-4">
                 <div className="bg-gradient-to-br from-amber-700/20 to-amber-600/10 p-4 rounded-full ring-2 ring-amber-700/20 shadow-md">
@@ -325,8 +345,8 @@ const Index = () => {
           </div>
         </section>
 
-        <section className="space-y-8 animate-fade-in">
-          <div className="text-center space-y-4">
+        <section className="space-y-8 scroll-reveal">
+          <div className="text-center space-y-4 scroll-reveal delay-100">
             <div className="flex flex-col items-center gap-4">
               <Icon name="Camera" className="text-amber-700/40" size={32} />
               <h2 className="font-serif text-5xl text-primary tracking-wide">Фотогалерея</h2>
@@ -341,7 +361,7 @@ const Index = () => {
             {galleryImages.map((image, index) => (
               <div
                 key={index}
-                className="group aspect-square rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.05] border-2 border-amber-700/20 hover:border-amber-700/40 relative"
+                className={`group aspect-square rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.05] border-2 border-amber-700/20 hover:border-amber-700/40 relative scroll-reveal-scale delay-${200 + index * 100}`}
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
                 <img
@@ -358,8 +378,8 @@ const Index = () => {
           </div>
         </section>
 
-        <section className="space-y-8 animate-fade-in">
-          <div className="text-center space-y-4">
+        <section className="space-y-8 scroll-reveal">
+          <div className="text-center space-y-4 scroll-reveal delay-100">
             <div className="flex flex-col items-center gap-4">
               <Icon name="Shirt" className="text-amber-700/40" size={32} />
               <h2 className="font-serif text-5xl text-primary tracking-wide">Дресс-код</h2>
@@ -370,7 +390,7 @@ const Index = () => {
               </div>
             </div>
           </div>
-          <Card className="p-10 text-center space-y-6 shadow-2xl border border-amber-700/30 bg-gradient-to-br from-amber-50/95 via-white/90 to-amber-50/95 backdrop-blur-sm relative overflow-hidden">
+          <Card className="p-10 text-center space-y-6 shadow-2xl border border-amber-700/30 bg-gradient-to-br from-amber-50/95 via-white/90 to-amber-50/95 backdrop-blur-sm relative overflow-hidden scroll-reveal-scale delay-200">
             <div className="absolute inset-0 bg-gradient-to-br from-amber-900/5 via-transparent to-amber-700/5 pointer-events-none" />
             <div className="relative z-10">
               <Icon name="Sparkles" className="mx-auto mb-6 text-amber-700/60" size={52} />
@@ -382,8 +402,8 @@ const Index = () => {
           </Card>
         </section>
 
-        <section className="space-y-8 animate-fade-in">
-          <div className="text-center space-y-4">
+        <section className="space-y-8 scroll-reveal">
+          <div className="text-center space-y-4 scroll-reveal delay-100">
             <div className="flex flex-col items-center gap-4">
               <Icon name="Gift" className="text-amber-700/40" size={32} />
               <h2 className="font-serif text-5xl text-primary tracking-wide">Подарки</h2>
@@ -394,7 +414,7 @@ const Index = () => {
               </div>
             </div>
           </div>
-          <Card className="p-10 shadow-2xl border border-amber-700/30 bg-gradient-to-br from-amber-50/95 via-white/90 to-amber-50/95 backdrop-blur-sm relative overflow-hidden">
+          <Card className="p-10 shadow-2xl border border-amber-700/30 bg-gradient-to-br from-amber-50/95 via-white/90 to-amber-50/95 backdrop-blur-sm relative overflow-hidden scroll-reveal-scale delay-200">
             <div className="absolute inset-0 bg-gradient-to-br from-amber-700/5 via-transparent to-amber-900/5 pointer-events-none" />
             <div className="relative z-10 text-center">
               <Icon name="Gift" className="mx-auto mb-6 text-amber-700/60" size={52} />
@@ -408,8 +428,8 @@ const Index = () => {
           </Card>
         </section>
 
-        <section className="space-y-8 animate-fade-in">
-          <div className="text-center space-y-4">
+        <section className="space-y-8 scroll-reveal">
+          <div className="text-center space-y-4 scroll-reveal delay-100">
             <div className="flex flex-col items-center gap-4">
               <Icon name="Phone" className="text-amber-700/40" size={32} />
               <h2 className="font-serif text-5xl text-primary tracking-wide">Контакты</h2>
@@ -420,7 +440,7 @@ const Index = () => {
               </div>
             </div>
           </div>
-          <Card className="p-10 max-w-2xl mx-auto shadow-2xl border border-amber-700/30 bg-gradient-to-br from-amber-50/95 via-white/90 to-amber-50/95 backdrop-blur-sm relative overflow-hidden">
+          <Card className="p-10 max-w-2xl mx-auto shadow-2xl border border-amber-700/30 bg-gradient-to-br from-amber-50/95 via-white/90 to-amber-50/95 backdrop-blur-sm relative overflow-hidden scroll-reveal-scale delay-200">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none" />
             <div className="relative z-10">
               <p className="font-serif text-xl text-foreground mb-6 text-center">
@@ -431,7 +451,7 @@ const Index = () => {
                   href="https://t.me/pitonjr" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-700 to-amber-600 text-white rounded-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 font-sans shadow-lg"
+                  className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-700 to-amber-600 text-white rounded-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 font-sans shadow-lg scroll-reveal-left delay-300"
                 >
                   <Icon name="MessageCircle" size={22} className="group-hover:scale-110 transition-transform" />
                   Написать Льву
@@ -440,7 +460,7 @@ const Index = () => {
                   href="https://t.me/yana_5_578" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-700 to-amber-600 text-white rounded-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 font-sans shadow-lg"
+                  className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-700 to-amber-600 text-white rounded-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 font-sans shadow-lg scroll-reveal-right delay-300"
                 >
                   <Icon name="MessageCircle" size={22} className="group-hover:scale-110 transition-transform" />
                   Написать Яне

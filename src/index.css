@@ -156,4 +156,88 @@
   .sepia-tone {
     filter: sepia(0.15) contrast(1.05);
   }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .scroll-reveal {
+    opacity: 0;
+  }
+
+  .scroll-reveal.animate-in {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .scroll-reveal-scale.animate-in {
+    animation: fadeInScale 0.8s ease-out forwards;
+  }
+
+  .scroll-reveal-left.animate-in {
+    animation: fadeInLeft 0.8s ease-out forwards;
+  }
+
+  .scroll-reveal-right.animate-in {
+    animation: fadeInRight 0.8s ease-out forwards;
+  }
+
+  .scroll-reveal.delay-100 {
+    animation-delay: 0.1s;
+  }
+
+  .scroll-reveal.delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  .scroll-reveal.delay-300 {
+    animation-delay: 0.3s;
+  }
+
+  .scroll-reveal.delay-400 {
+    animation-delay: 0.4s;
+  }
+
+  .scroll-reveal.delay-500 {
+    animation-delay: 0.5s;
+  }
 }
