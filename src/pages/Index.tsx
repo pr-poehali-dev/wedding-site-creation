@@ -17,6 +17,7 @@ const Index = () => {
     minutes: 0,
     seconds: 0
   });
+  const [confetti, setConfetti] = useState<Array<{id: number, x: number, y: number, rotation: number, color: string, delay: number}>>([]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -56,8 +57,37 @@ const Index = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const colors = ['#D4AF37', '#8B7355', '#F4E4C1', '#C9A962', '#B8956A'];
+    const newConfetti = Array.from({ length: 50 }, (_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: -20 - Math.random() * 50,
+      rotation: Math.random() * 360,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      delay: Math.random() * 5
+    }));
+    setConfetti(newConfetti);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-stone-100 to-amber-50/50 relative overflow-hidden vintage-texture sepia-tone">
+      {/* Конфетти */}
+      {confetti.map((piece) => (
+        <div
+          key={piece.id}
+          className="absolute w-3 h-3 pointer-events-none animate-confetti-fall"
+          style={{
+            left: `${piece.x}%`,
+            top: `${piece.y}%`,
+            backgroundColor: piece.color,
+            transform: `rotate(${piece.rotation}deg)`,
+            animationDelay: `${piece.delay}s`,
+            opacity: 0.7
+          }}
+        />
+      ))}
+      
       {/* Декоративные круги и формы */}
       <div className="absolute top-20 left-10 w-64 h-64 border border-primary/5 rounded-full pointer-events-none" />
       <div className="absolute top-40 left-20 w-48 h-48 border border-accent/5 rounded-full pointer-events-none" />
@@ -470,7 +500,7 @@ const Index = () => {
           </Card>
         </section>
 
-        <footer className="text-center pt-12 pb-6 border-t border-primary/10 relative">
+        <footer className="text-center pt-12 pb-6 border-t border-primary/10 relative scroll-reveal">
           <div className="flex items-center justify-center gap-4 mb-4">
             <div className="h-px w-24 bg-gradient-to-r from-transparent to-primary/30" />
             <Icon name="Heart" className="text-primary" size={24} />
@@ -481,6 +511,27 @@ const Index = () => {
             <Icon name="Calendar" size={16} />
             Лев & Яна • 07.08.2026
           </p>
+          
+          {/* Кнопка музыки */}
+          <button
+            onClick={() => {
+              const audio = document.getElementById('wedding-music') as HTMLAudioElement;
+              if (audio.paused) {
+                audio.play();
+              } else {
+                audio.pause();
+              }
+            }}
+            className="mt-6 inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-700/80 to-amber-600/80 text-white rounded-full hover:shadow-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+          >
+            <Icon name="Music" size={20} />
+            <span className="font-sans text-sm">Включить музыку</span>
+          </button>
+          
+          {/* Аудио плеер (скрытый) */}
+          <audio id="wedding-music" loop>
+            <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg" />
+          </audio>
         </footer>
       </div>
     </div>
