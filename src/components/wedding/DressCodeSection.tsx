@@ -16,12 +16,12 @@ const DressCodeSection = () => {
         </div>
       </div>
       
-      <Card className="p-10 text-center space-y-6 shadow-2xl vintage-shadow border-2 border-primary/20 bg-card/95 backdrop-blur-sm relative overflow-hidden scroll-reveal-scale delay-200">
+      <Card className="p-6 sm:p-10 text-center space-y-6 shadow-2xl vintage-shadow border-2 border-primary/20 bg-card/95 backdrop-blur-sm relative overflow-hidden scroll-reveal-scale delay-200">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none" />
         <div className="relative z-10">
-          <Icon name="Sparkles" className="mx-auto mb-6 text-accent/70 animate-pulse-glow" size={56} />
-          <p className="font-serif text-3xl text-primary mb-4 tracking-wider">Вечерний стиль</p>
-          <p className="text-muted-foreground font-sans max-w-md mx-auto">
+          <Icon name="Sparkles" className="mx-auto mb-6 text-accent/70 animate-pulse-glow" size={48} />
+          <p className="font-serif text-2xl sm:text-3xl text-primary mb-4 tracking-wider">Вечерний стиль</p>
+          <p className="text-muted-foreground font-sans max-w-md mx-auto text-sm sm:text-base">
             Приглашаем вас разделить с нами радость этого дня в элегантных нарядах
           </p>
         </div>

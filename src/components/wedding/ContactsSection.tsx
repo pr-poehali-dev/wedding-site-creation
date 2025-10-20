@@ -15,29 +15,29 @@ const ContactsSection = () => {
           </div>
         </div>
       </div>
-      <Card className="p-10 max-w-2xl mx-auto shadow-2xl border border-amber-700/30 bg-gradient-to-br from-amber-50/95 via-white/90 to-amber-50/95 backdrop-blur-sm relative overflow-hidden scroll-reveal-scale delay-200">
+      <Card className="p-6 sm:p-10 max-w-2xl mx-auto shadow-2xl border border-amber-700/30 bg-gradient-to-br from-amber-50/95 via-white/90 to-amber-50/95 backdrop-blur-sm relative overflow-hidden scroll-reveal-scale delay-200">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none" />
         <div className="relative z-10">
-          <p className="font-serif text-xl text-foreground mb-6 text-center">
+          <p className="font-serif text-lg sm:text-xl text-foreground mb-6 text-center">
             Остались вопросы? Напишите нам!
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col gap-3 sm:gap-4 justify-center">
             <a 
               href="https://t.me/pitonjr" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-700 to-amber-600 text-white rounded-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 font-sans shadow-lg scroll-reveal-left delay-300"
+              className="group inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-amber-700 to-amber-600 text-white rounded-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 font-sans shadow-lg scroll-reveal-left delay-300 text-sm sm:text-base"
             >
-              <Icon name="MessageCircle" size={22} className="group-hover:scale-110 transition-transform" />
+              <Icon name="MessageCircle" size={20} className="group-hover:scale-110 transition-transform flex-shrink-0" />
               Написать Льву
             </a>
             <a 
               href="https://t.me/yana_5_578" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-700 to-amber-600 text-white rounded-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 font-sans shadow-lg scroll-reveal-right delay-300"
+              className="group inline-flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-amber-700 to-amber-600 text-white rounded-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 font-sans shadow-lg scroll-reveal-right delay-300 text-sm sm:text-base"
             >
-              <Icon name="MessageCircle" size={22} className="group-hover:scale-110 transition-transform" />
+              <Icon name="MessageCircle" size={20} className="group-hover:scale-110 transition-transform flex-shrink-0" />
               Написать Яне
             </a>
           </div>

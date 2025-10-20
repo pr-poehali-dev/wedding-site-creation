@@ -15,11 +15,11 @@ const GiftsSection = () => {
           </div>
         </div>
       </div>
-      <Card className="p-10 shadow-2xl border border-amber-700/30 bg-gradient-to-br from-amber-50/95 via-white/90 to-amber-50/95 backdrop-blur-sm relative overflow-hidden scroll-reveal-scale delay-200">
+      <Card className="p-6 sm:p-10 shadow-2xl border border-amber-700/30 bg-gradient-to-br from-amber-50/95 via-white/90 to-amber-50/95 backdrop-blur-sm relative overflow-hidden scroll-reveal-scale delay-200">
         <div className="absolute inset-0 bg-gradient-to-br from-amber-700/5 via-transparent to-amber-900/5 pointer-events-none" />
         <div className="relative z-10 text-center">
-          <Icon name="Gift" className="mx-auto mb-6 text-amber-700/60" size={52} />
-          <p className="font-serif text-xl text-foreground leading-relaxed max-w-2xl mx-auto">
+          <Icon name="Gift" className="mx-auto mb-6 text-amber-700/60" size={44} />
+          <p className="font-serif text-base sm:text-xl text-foreground leading-relaxed max-w-2xl mx-auto">
             Дорогие гости! Самый ценный подарок для нас — ваше присутствие на нашем торжестве. 
             Цветы дарить не нужно — мы создали особенную атмосферу, которая не требует дополнений. 
             Если вы хотите порадовать нас подарком, мы будем благодарны за конверт, 
