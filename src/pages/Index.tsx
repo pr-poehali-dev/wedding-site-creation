@@ -78,7 +78,9 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-stone-100 to-amber-50/50 relative overflow-hidden vintage-texture sepia-tone">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50/30 to-amber-100/40 relative overflow-hidden" style={{
+      backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%)'
+    }}>
       <BackgroundDecorations confetti={confetti} />
       
       <div className="container max-w-4xl mx-auto px-4 py-12 space-y-16 relative z-10">
