@@ -20,7 +20,7 @@ const HeroSection = ({ timeLeft }: HeroSectionProps) => {
         </div>
         
         <h1 className="font-serif text-7xl md:text-9xl text-primary mb-6 drop-shadow-lg tracking-wide animate-fade-in">
-          Лев <span className="text-accent opacity-60 mx-2 animate-pulse">✦</span> Яна
+          Лев <span className="text-accent opacity-60 mx-2 animate-pulse">&</span> Яна
         </h1>
         
         <div className="flex items-center justify-center gap-4 mt-4">
