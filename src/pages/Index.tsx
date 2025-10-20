@@ -109,8 +109,8 @@ const Index = () => {
               <div className="h-px w-24 bg-gradient-to-l from-transparent to-primary/30" />
             </div>
             
-            <h1 className="font-serif text-6xl md:text-8xl text-primary mb-6 drop-shadow-lg">
-              Лев & Яна
+            <h1 className="font-serif text-7xl md:text-9xl text-primary mb-6 drop-shadow-lg tracking-wide">
+              Лев <span className="text-accent opacity-60 mx-2">✦</span> Яна
             </h1>
             
             {/* Декоративный разделитель снизу */}
@@ -179,12 +179,16 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="bg-amber-50/90 backdrop-blur-sm rounded-none p-8 vintage-shadow border-4 border-double border-amber-700/30 animate-scale-in relative overflow-hidden">
+          <div className="bg-gradient-to-br from-amber-50/95 via-stone-50/90 to-amber-50/95 backdrop-blur-sm rounded-lg p-10 vintage-shadow border border-amber-700/20 shadow-2xl animate-scale-in relative overflow-hidden">
             {/* Декоративный фон */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none" />
             
             <div className="relative z-10">
-              <h2 className="font-serif text-3xl text-primary mb-6">До свадьбы осталось</h2>
+              <div className="flex items-center justify-center gap-3 mb-6">
+                <div className="h-px w-16 bg-gradient-to-r from-transparent to-amber-700/30" />
+                <h2 className="font-serif text-3xl text-primary tracking-wide">До свадьбы осталось</h2>
+                <div className="h-px w-16 bg-gradient-to-l from-transparent to-amber-700/30" />
+              </div>
               <div className="grid grid-cols-4 gap-4">
                 {[
                   { value: timeLeft.days, label: 'Дней', icon: 'Calendar' },
@@ -192,7 +196,7 @@ const Index = () => {
                   { value: timeLeft.minutes, label: 'Минут', icon: 'Timer' },
                   { value: timeLeft.seconds, label: 'Секунд', icon: 'Zap' }
                 ].map((item) => (
-                  <div key={item.label} className="text-center bg-background/50 rounded-xl p-4 border border-primary/5 hover:border-primary/20 transition-all">
+                  <div key={item.label} className="text-center bg-white/60 rounded-lg p-5 border border-amber-700/10 shadow-lg hover:shadow-xl hover:border-amber-700/30 transition-all duration-300 hover:scale-105">
                     <Icon name={item.icon as any} className="text-primary/40 mx-auto mb-2" size={20} />
                     <div className="text-4xl md:text-5xl font-bold text-accent font-serif">
                       {item.value}
@@ -209,8 +213,12 @@ const Index = () => {
 
         <section className="flex justify-center animate-fade-in">
           <div className="relative max-w-sm w-full">
+            {/* Изысканная рамка */}
+            <div className="absolute -inset-6 border border-amber-700/20 rounded-full" />
+            <div className="absolute -inset-8 border border-amber-600/10 rounded-full" />
+            
             {/* Размытое свечение вокруг фото */}
-            <div className="absolute -inset-8 bg-gradient-to-br from-amber-700/20 via-amber-600/10 to-amber-700/20 rounded-full blur-3xl opacity-60" />
+            <div className="absolute -inset-12 bg-gradient-to-br from-amber-700/20 via-amber-600/10 to-amber-700/20 rounded-full blur-3xl opacity-60" />
             
             {/* Контейнер с маской для размытых краёв */}
             <div className="relative z-10" style={{
@@ -220,32 +228,42 @@ const Index = () => {
               <img 
                 src="https://cdn.poehali.dev/files/4af12923-fef6-4557-93a3-45ef6d1535de.jpg" 
                 alt="Лев и Яна" 
-                className="w-full h-auto object-cover rounded-lg"
+                className="w-full h-auto object-cover rounded-lg shadow-2xl"
               />
             </div>
+            
+            {/* Декоративные уголки */}
+            <div className="absolute -top-4 -left-4 w-8 h-8 border-l-2 border-t-2 border-amber-700/40 rounded-tl-lg" />
+            <div className="absolute -top-4 -right-4 w-8 h-8 border-r-2 border-t-2 border-amber-700/40 rounded-tr-lg" />
+            <div className="absolute -bottom-4 -left-4 w-8 h-8 border-l-2 border-b-2 border-amber-700/40 rounded-bl-lg" />
+            <div className="absolute -bottom-4 -right-4 w-8 h-8 border-r-2 border-b-2 border-amber-700/40 rounded-br-lg" />
           </div>
         </section>
 
         <section className="space-y-8 animate-fade-in">
           <div className="text-center space-y-4">
-            <div className="flex items-center justify-center gap-3">
-              <Icon name="Calendar" className="text-primary" size={28} />
-              <h2 className="font-serif text-5xl text-primary">Программа дня</h2>
-              <Icon name="Calendar" className="text-primary" size={28} />
+            <div className="flex flex-col items-center gap-4">
+              <Icon name="Sparkles" className="text-amber-700/40" size={32} />
+              <h2 className="font-serif text-5xl text-primary tracking-wide">Программа дня</h2>
+              <div className="flex items-center gap-2">
+                <div className="h-px w-20 bg-gradient-to-r from-transparent to-amber-700/30" />
+                <div className="w-2 h-2 bg-amber-700/40 rounded-full" />
+                <div className="h-px w-20 bg-gradient-to-l from-transparent to-amber-700/30" />
+              </div>
             </div>
-            <div className="h-px w-32 mx-auto bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
           </div>
           
           <div className="space-y-6">
-            <Card className="p-6 hover:shadow-xl transition-all hover:scale-[1.02] border-l-4 border-l-amber-700/50 bg-amber-50/80 backdrop-blur-sm vintage-shadow">
+            <Card className="p-8 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] border border-amber-700/20 bg-gradient-to-br from-amber-50/90 via-white/80 to-amber-50/90 backdrop-blur-sm shadow-lg relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-amber-700/60 via-amber-600/40 to-amber-700/60" />
               <div className="flex items-start gap-4">
-                <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-3 rounded-full ring-2 ring-primary/10">
-                  <Icon name="Clock" className="text-primary" size={24} />
+                <div className="bg-gradient-to-br from-amber-700/20 to-amber-600/10 p-4 rounded-full ring-2 ring-amber-700/20 shadow-md">
+                  <Icon name="Clock" className="text-primary" size={28} />
                 </div>
                 <div className="flex-1">
-                  <div className="font-serif text-2xl text-primary mb-2">14:15</div>
-                  <h3 className="font-sans font-semibold text-lg mb-2">Торжественная регистрация</h3>
-                  <p className="text-muted-foreground font-sans">
+                  <div className="font-serif text-3xl text-primary mb-2 tracking-wide">14:15</div>
+                  <h3 className="font-sans font-semibold text-xl mb-2">Торжественная регистрация</h3>
+                  <p className="text-muted-foreground font-sans text-base">
                     <Icon name="MapPin" className="inline mr-1" size={16} />
                     г. Екатеринбург, ул. Карла Либкнехта, 3
                   </p>
@@ -253,29 +271,31 @@ const Index = () => {
               </div>
             </Card>
 
-            <Card className="p-6 hover:shadow-xl transition-all hover:scale-[1.02] border-l-4 border-l-amber-700/50 bg-amber-50/80 backdrop-blur-sm vintage-shadow">
+            <Card className="p-8 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] border border-amber-700/20 bg-gradient-to-br from-amber-50/90 via-white/80 to-amber-50/90 backdrop-blur-sm shadow-lg relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-amber-700/60 via-amber-600/40 to-amber-700/60" />
               <div className="flex items-start gap-4">
-                <div className="bg-gradient-to-br from-primary/20 to-primary/5 p-3 rounded-full ring-2 ring-primary/10">
-                  <Icon name="Camera" className="text-primary" size={24} />
+                <div className="bg-gradient-to-br from-amber-700/20 to-amber-600/10 p-4 rounded-full ring-2 ring-amber-700/20 shadow-md">
+                  <Icon name="Camera" className="text-primary" size={28} />
                 </div>
                 <div className="flex-1">
-                  <div className="font-serif text-2xl text-primary mb-2">15:00 — 16:00</div>
-                  <h3 className="font-sans font-semibold text-lg mb-2">Фотосессия</h3>
-                  <p className="text-muted-foreground font-sans">
+                  <div className="font-serif text-3xl text-primary mb-2 tracking-wide">15:00 — 16:00</div>
+                  <h3 className="font-sans font-semibold text-xl mb-2">Фотосессия</h3>
+                  <p className="text-muted-foreground font-sans text-base">
                     Прогулка и создание прекрасных воспоминаний
                   </p>
                 </div>
               </div>
             </Card>
 
-            <Card className="p-6 hover:shadow-xl transition-all hover:scale-[1.02] border-l-4 border-l-amber-600/50 bg-amber-50/80 backdrop-blur-sm vintage-shadow">
+            <Card className="p-8 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] border border-amber-700/20 bg-gradient-to-br from-amber-50/90 via-white/80 to-amber-50/90 backdrop-blur-sm shadow-lg relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-amber-700/60 via-amber-600/40 to-amber-700/60" />
               <div className="flex items-start gap-4">
-                <div className="bg-gradient-to-br from-accent/20 to-accent/5 p-3 rounded-full ring-2 ring-accent/10">
-                  <Icon name="Sparkles" className="text-accent" size={24} />
+                <div className="bg-gradient-to-br from-amber-700/20 to-amber-600/10 p-4 rounded-full ring-2 ring-amber-700/20 shadow-md">
+                  <Icon name="Sparkles" className="text-accent" size={28} />
                 </div>
                 <div className="flex-1">
-                  <div className="font-serif text-2xl text-primary mb-2">16:00 — 23:00</div>
-                  <h3 className="font-sans font-semibold text-lg mb-2">Праздничный банкет</h3>
+                  <div className="font-serif text-3xl text-primary mb-2 tracking-wide">16:00 — 23:00</div>
+                  <h3 className="font-sans font-semibold text-xl mb-2">Праздничный банкет</h3>
                   <p className="text-muted-foreground font-sans mb-4">
                     <Icon name="MapPin" className="inline mr-1" size={16} />
                     г. Екатеринбург, ул. Гагарина, 30а, отель Grand Hall
@@ -307,18 +327,21 @@ const Index = () => {
 
         <section className="space-y-8 animate-fade-in">
           <div className="text-center space-y-4">
-            <div className="flex items-center justify-center gap-3">
-              <Icon name="Camera" className="text-primary" size={28} />
-              <h2 className="font-serif text-5xl text-primary">Фотогалерея</h2>
-              <Icon name="Camera" className="text-primary" size={28} />
+            <div className="flex flex-col items-center gap-4">
+              <Icon name="Camera" className="text-amber-700/40" size={32} />
+              <h2 className="font-serif text-5xl text-primary tracking-wide">Фотогалерея</h2>
+              <div className="flex items-center gap-2">
+                <div className="h-px w-20 bg-gradient-to-r from-transparent to-amber-700/30" />
+                <div className="w-2 h-2 bg-amber-700/40 rounded-full" />
+                <div className="h-px w-20 bg-gradient-to-l from-transparent to-amber-700/30" />
+              </div>
             </div>
-            <div className="h-px w-32 mx-auto bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {galleryImages.map((image, index) => (
               <div
                 key={index}
-                className="group aspect-square rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all hover:scale-[1.05] ring-2 ring-primary/10 hover:ring-primary/30 relative"
+                className="group aspect-square rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.05] border-2 border-amber-700/20 hover:border-amber-700/40 relative"
               >
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
                 <img
@@ -337,18 +360,21 @@ const Index = () => {
 
         <section className="space-y-8 animate-fade-in">
           <div className="text-center space-y-4">
-            <div className="flex items-center justify-center gap-3">
-              <Icon name="Shirt" className="text-accent" size={28} />
-              <h2 className="font-serif text-5xl text-primary">Дресс-код</h2>
-              <Icon name="Shirt" className="text-accent" size={28} />
+            <div className="flex flex-col items-center gap-4">
+              <Icon name="Shirt" className="text-amber-700/40" size={32} />
+              <h2 className="font-serif text-5xl text-primary tracking-wide">Дресс-код</h2>
+              <div className="flex items-center gap-2">
+                <div className="h-px w-20 bg-gradient-to-r from-transparent to-amber-700/30" />
+                <div className="w-2 h-2 bg-amber-700/40 rounded-full" />
+                <div className="h-px w-20 bg-gradient-to-l from-transparent to-amber-700/30" />
+              </div>
             </div>
-            <div className="h-px w-32 mx-auto bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
           </div>
-          <Card className="p-8 text-center space-y-6 vintage-shadow border-4 border-double border-amber-700/30 bg-amber-50/90 backdrop-blur-sm relative overflow-hidden">
+          <Card className="p-10 text-center space-y-6 shadow-2xl border border-amber-700/30 bg-gradient-to-br from-amber-50/95 via-white/90 to-amber-50/95 backdrop-blur-sm relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-amber-900/5 via-transparent to-amber-700/5 pointer-events-none" />
             <div className="relative z-10">
-              <Icon name="Sparkles" className="mx-auto mb-4 text-primary" size={48} />
-              <p className="font-serif text-3xl text-accent mb-2">Cocktail</p>
+              <Icon name="Sparkles" className="mx-auto mb-6 text-amber-700/60" size={52} />
+              <p className="font-serif text-4xl text-primary mb-4 tracking-wider">Cocktail</p>
               <p className="text-muted-foreground font-sans max-w-md mx-auto">
                 Приглашаем вас разделить с нами радость этого дня в элегантных нарядах
               </p>
@@ -358,17 +384,20 @@ const Index = () => {
 
         <section className="space-y-8 animate-fade-in">
           <div className="text-center space-y-4">
-            <div className="flex items-center justify-center gap-3">
-              <Icon name="Gift" className="text-primary" size={28} />
-              <h2 className="font-serif text-5xl text-primary">Подарки</h2>
-              <Icon name="Gift" className="text-primary" size={28} />
+            <div className="flex flex-col items-center gap-4">
+              <Icon name="Gift" className="text-amber-700/40" size={32} />
+              <h2 className="font-serif text-5xl text-primary tracking-wide">Подарки</h2>
+              <div className="flex items-center gap-2">
+                <div className="h-px w-20 bg-gradient-to-r from-transparent to-amber-700/30" />
+                <div className="w-2 h-2 bg-amber-700/40 rounded-full" />
+                <div className="h-px w-20 bg-gradient-to-l from-transparent to-amber-700/30" />
+              </div>
             </div>
-            <div className="h-px w-32 mx-auto bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
           </div>
-          <Card className="p-8 vintage-shadow border-4 border-double border-amber-700/30 bg-amber-50/90 backdrop-blur-sm relative overflow-hidden">
+          <Card className="p-10 shadow-2xl border border-amber-700/30 bg-gradient-to-br from-amber-50/95 via-white/90 to-amber-50/95 backdrop-blur-sm relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-amber-700/5 via-transparent to-amber-900/5 pointer-events-none" />
             <div className="relative z-10 text-center">
-              <Icon name="Gift" className="mx-auto mb-4 text-primary" size={48} />
+              <Icon name="Gift" className="mx-auto mb-6 text-amber-700/60" size={52} />
               <p className="font-serif text-xl text-foreground leading-relaxed max-w-2xl mx-auto">
                 Дорогие гости! Самый ценный подарок для нас — ваше присутствие на нашем торжестве. 
                 Цветы дарить не нужно — мы создали особенную атмосферу, которая не требует дополнений. 
@@ -381,14 +410,17 @@ const Index = () => {
 
         <section className="space-y-8 animate-fade-in">
           <div className="text-center space-y-4">
-            <div className="flex items-center justify-center gap-3">
-              <Icon name="Phone" className="text-accent" size={28} />
-              <h2 className="font-serif text-5xl text-primary">Контакты</h2>
-              <Icon name="Phone" className="text-accent" size={28} />
+            <div className="flex flex-col items-center gap-4">
+              <Icon name="Phone" className="text-amber-700/40" size={32} />
+              <h2 className="font-serif text-5xl text-primary tracking-wide">Контакты</h2>
+              <div className="flex items-center gap-2">
+                <div className="h-px w-20 bg-gradient-to-r from-transparent to-amber-700/30" />
+                <div className="w-2 h-2 bg-amber-700/40 rounded-full" />
+                <div className="h-px w-20 bg-gradient-to-l from-transparent to-amber-700/30" />
+              </div>
             </div>
-            <div className="h-px w-32 mx-auto bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
           </div>
-          <Card className="p-8 max-w-2xl mx-auto vintage-shadow border-4 border-double border-amber-700/30 bg-amber-50/90 backdrop-blur-sm relative overflow-hidden">
+          <Card className="p-10 max-w-2xl mx-auto shadow-2xl border border-amber-700/30 bg-gradient-to-br from-amber-50/95 via-white/90 to-amber-50/95 backdrop-blur-sm relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none" />
             <div className="relative z-10">
               <p className="font-serif text-xl text-foreground mb-6 text-center">
@@ -399,18 +431,18 @@ const Index = () => {
                   href="https://t.me/pitonjr" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-primary to-primary/90 text-primary-foreground rounded-lg hover:shadow-lg transition-all hover:scale-105 font-sans ring-2 ring-primary/20 hover:ring-primary/40"
+                  className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-700 to-amber-600 text-white rounded-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 font-sans shadow-lg"
                 >
-                  <Icon name="MessageCircle" size={20} className="group-hover:scale-110 transition-transform" />
+                  <Icon name="MessageCircle" size={22} className="group-hover:scale-110 transition-transform" />
                   Написать Льву
                 </a>
                 <a 
                   href="https://t.me/yana_5_578" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="group inline-flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-accent to-accent/90 text-accent-foreground rounded-lg hover:shadow-lg transition-all hover:scale-105 font-sans ring-2 ring-accent/20 hover:ring-accent/40"
+                  className="group inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-amber-700 to-amber-600 text-white rounded-lg hover:shadow-2xl transition-all duration-300 hover:scale-105 font-sans shadow-lg"
                 >
-                  <Icon name="MessageCircle" size={20} className="group-hover:scale-110 transition-transform" />
+                  <Icon name="MessageCircle" size={22} className="group-hover:scale-110 transition-transform" />
                   Написать Яне
                 </a>
               </div>
