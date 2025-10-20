@@ -65,8 +65,8 @@ const Index = () => {
   }, []);
 
   useEffect(() => {
-    const colors = ['#FFD700', '#FFC107', '#F5DEB3', '#FFE082', '#FFF176'];
-    const newConfetti = Array.from({ length: 30 }, (_, i) => ({
+    const colors = ['#D4AF37', '#8B7355', '#F4E4C1', '#C9A962', '#B8956A'];
+    const newConfetti = Array.from({ length: 50 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: -20 - Math.random() * 50,
@@ -78,7 +78,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-neutral-50 to-amber-50/30 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-amber-50 to-rose-50 relative overflow-hidden vintage-texture sepia-tone">
       <BackgroundDecorations confetti={confetti} />
       
       <div className="container max-w-4xl mx-auto px-4 py-12 space-y-16 relative z-10">

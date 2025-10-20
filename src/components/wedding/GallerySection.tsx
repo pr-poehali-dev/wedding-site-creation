@@ -9,11 +9,11 @@ const GallerySection = ({ galleryImages }: GallerySectionProps) => {
     <section className="space-y-8 scroll-reveal">
       <div className="text-center space-y-4 scroll-reveal delay-100">
         <div className="flex flex-col items-center gap-4">
-          <Icon name="Camera" className="text-amber-700/40" size={32} />
-          <h2 className="font-serif text-5xl text-primary tracking-wide">Фотогалерея</h2>
-          <div className="flex items-center gap-2">
+          <Icon name="Camera" className="text-amber-700/40 animate-bounce-gentle" size={32} />
+          <h2 className="font-serif text-5xl text-primary tracking-wide animate-fade-in">Фотогалерея</h2>
+          <div className="flex items-center gap-2 animate-fade-in">
             <div className="h-px w-20 bg-gradient-to-r from-transparent to-amber-700/30" />
-            <div className="w-2 h-2 bg-amber-700/40 rounded-full" />
+            <div className="w-2 h-2 bg-amber-700/40 rounded-full animate-pulse" />
             <div className="h-px w-20 bg-gradient-to-l from-transparent to-amber-700/30" />
           </div>
         </div>
@@ -22,7 +22,8 @@ const GallerySection = ({ galleryImages }: GallerySectionProps) => {
         {galleryImages.map((image, index) => (
           <div
             key={index}
-            className={`group aspect-square rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.05] border-2 border-amber-700/20 hover:border-amber-700/40 relative scroll-reveal-scale delay-${200 + index * 100}`}
+            className="group aspect-square rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.05] border-2 border-amber-700/20 hover:border-amber-700/40 relative scroll-reveal-scale animate-float"
+            style={{animationDelay: `${index * 0.5}s`}}
           >
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity z-10" />
             <img

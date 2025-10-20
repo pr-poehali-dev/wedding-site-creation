@@ -13,14 +13,14 @@ const HeroSection = ({ timeLeft }: HeroSectionProps) => {
   return (
     <section className="text-center space-y-8 scroll-reveal">
       <div className="space-y-6 scroll-reveal delay-100">
-        <div className="flex items-center justify-center gap-4 mb-8">
+        <div className="flex items-center justify-center gap-4 mb-8 animate-fade-in">
           <div className="h-px w-24 bg-gradient-to-r from-transparent to-primary/30" />
-          <Icon name="Heart" className="text-primary" size={20} />
+          <Icon name="Heart" className="text-primary animate-pulse" size={20} />
           <div className="h-px w-24 bg-gradient-to-l from-transparent to-primary/30" />
         </div>
         
-        <h1 className="font-serif text-7xl md:text-9xl text-primary mb-6 drop-shadow-lg tracking-wide">
-          Лев <span className="text-accent opacity-60 mx-2">✦</span> Яна
+        <h1 className="font-serif text-7xl md:text-9xl text-primary mb-6 drop-shadow-lg tracking-wide animate-fade-in">
+          Лев <span className="text-accent opacity-60 mx-2 animate-pulse">✦</span> Яна
         </h1>
         
         <div className="flex items-center justify-center gap-4 mt-4">
@@ -103,9 +103,9 @@ const HeroSection = ({ timeLeft }: HeroSectionProps) => {
               { value: timeLeft.hours, label: 'Часов', icon: 'Clock' },
               { value: timeLeft.minutes, label: 'Минут', icon: 'Timer' },
               { value: timeLeft.seconds, label: 'Секунд', icon: 'Zap' }
-            ].map((item) => (
-              <div key={item.label} className="text-center bg-white/60 rounded-lg p-5 border border-amber-700/10 shadow-lg hover:shadow-xl hover:border-amber-700/30 transition-all duration-300 hover:scale-105">
-                <Icon name={item.icon as any} className="text-primary/40 mx-auto mb-2" size={20} />
+            ].map((item, idx) => (
+              <div key={item.label} className="text-center bg-white/60 rounded-lg p-5 border border-amber-700/10 shadow-lg hover:shadow-xl hover:border-amber-700/30 transition-all duration-300 hover:scale-105 animate-scale-in" style={{animationDelay: `${idx * 0.1}s`}}>
+                <Icon name={item.icon as any} className="text-primary/40 mx-auto mb-2 animate-bounce-gentle" size={20} style={{animationDelay: `${idx * 0.2}s`}} />
                 <div className="text-4xl md:text-5xl font-bold text-accent font-serif">
                   {item.value}
                 </div>

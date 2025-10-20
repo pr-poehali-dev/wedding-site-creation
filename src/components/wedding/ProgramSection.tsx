@@ -6,21 +6,21 @@ const ProgramSection = () => {
     <section className="space-y-8 scroll-reveal">
       <div className="text-center space-y-4 scroll-reveal delay-100">
         <div className="flex flex-col items-center gap-4">
-          <Icon name="Sparkles" className="text-amber-700/40" size={32} />
-          <h2 className="font-serif text-5xl text-primary tracking-wide">Программа дня</h2>
-          <div className="flex items-center gap-2">
+          <Icon name="Sparkles" className="text-amber-700/40 animate-pulse-glow" size={32} />
+          <h2 className="font-serif text-5xl text-primary tracking-wide animate-fade-in">Программа дня</h2>
+          <div className="flex items-center gap-2 animate-fade-in">
             <div className="h-px w-20 bg-gradient-to-r from-transparent to-amber-700/30" />
-            <div className="w-2 h-2 bg-amber-700/40 rounded-full" />
+            <div className="w-2 h-2 bg-amber-700/40 rounded-full animate-pulse" />
             <div className="h-px w-20 bg-gradient-to-l from-transparent to-amber-700/30" />
           </div>
         </div>
       </div>
       
       <div className="space-y-6">
-        <Card className="p-8 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] border border-amber-700/20 bg-gradient-to-br from-amber-50/90 via-white/80 to-amber-50/90 backdrop-blur-sm shadow-lg relative overflow-hidden scroll-reveal-left delay-200">
-          <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-amber-700/60 via-amber-600/40 to-amber-700/60" />
+        <Card className="p-8 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] border border-amber-700/20 bg-gradient-to-br from-amber-50/90 via-white/80 to-amber-50/90 backdrop-blur-sm shadow-lg relative overflow-hidden scroll-reveal-left delay-200 animate-slide-in-left">
+          <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-amber-700/60 via-amber-600/40 to-amber-700/60 animate-shimmer" style={{backgroundSize: '200% 100%'}} />
           <div className="flex items-start gap-4">
-            <div className="bg-gradient-to-br from-amber-700/20 to-amber-600/10 p-4 rounded-full ring-2 ring-amber-700/20 shadow-md">
+            <div className="bg-gradient-to-br from-amber-700/20 to-amber-600/10 p-4 rounded-full ring-2 ring-amber-700/20 shadow-md animate-pulse-glow">
               <Icon name="Clock" className="text-primary" size={28} />
             </div>
             <div className="flex-1">
