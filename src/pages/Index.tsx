@@ -65,8 +65,8 @@ const Index = () => {
   }, []);
 
   useEffect(() => {
-    const colors = ['#D4AF37', '#8B7355', '#F4E4C1', '#C9A962', '#B8956A'];
-    const newConfetti = Array.from({ length: 50 }, (_, i) => ({
+    const colors = ['#FFD700', '#FFC107', '#F5DEB3', '#FFE082', '#FFF176'];
+    const newConfetti = Array.from({ length: 30 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
       y: -20 - Math.random() * 50,
@@ -78,9 +78,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50/30 to-amber-100/40 relative overflow-hidden" style={{
-      backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%)'
-    }}>
+    <div className="min-h-screen bg-gradient-to-br from-white via-neutral-50 to-amber-50/30 relative overflow-hidden">
       <BackgroundDecorations confetti={confetti} />
       
       <div className="container max-w-4xl mx-auto px-4 py-12 space-y-16 relative z-10">
