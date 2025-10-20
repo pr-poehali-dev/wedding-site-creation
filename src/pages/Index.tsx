@@ -27,6 +27,28 @@ const Index = () => {
   const [confetti, setConfetti] = useState<Array<{id: number, x: number, y: number, rotation: number, color: string, delay: number}>>([]);
 
   useEffect(() => {
+    const audio = new Audio('https://cdn.poehali.dev/public/classical-wedding-music.mp3');
+    audio.loop = true;
+    audio.volume = 0.3;
+    
+    const playAudio = () => {
+      audio.play().catch(err => {
+        console.log('Autoplay prevented:', err);
+        document.addEventListener('click', () => {
+          audio.play();
+        }, { once: true });
+      });
+    };
+    
+    playAudio();
+    
+    return () => {
+      audio.pause();
+      audio.currentTime = 0;
+    };
+  }, []);
+
+  useEffect(() => {
     const timer = setInterval(() => {
       const now = new Date().getTime();
       const distance = WeddingDate.getTime() - now;
@@ -65,7 +87,7 @@ const Index = () => {
   }, []);
 
   useEffect(() => {
-    const colors = ['#D4AF37', '#8B7355', '#F4E4C1', '#C9A962', '#B8956A'];
+    const colors = ['#FFD700', '#FFC107', '#2D5016', '#3D6B2A', '#F4E4C1'];
     const newConfetti = Array.from({ length: 50 }, (_, i) => ({
       id: i,
       x: Math.random() * 100,
@@ -78,7 +100,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-amber-50 to-rose-50 relative overflow-hidden vintage-texture sepia-tone">
+    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-emerald-50 relative overflow-hidden vintage-texture">
       <BackgroundDecorations confetti={confetti} />
       
       <div className="container max-w-4xl mx-auto px-4 py-12 space-y-16 relative z-10">
