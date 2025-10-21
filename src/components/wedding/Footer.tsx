@@ -7,18 +7,25 @@ const Footer = () => {
 
   const toggleMusic = async () => {
     const audio = audioRef.current;
-    if (!audio) return;
+    if (!audio) {
+      console.log('Аудио элемент не найден');
+      return;
+    }
 
     try {
       if (isPlaying) {
         audio.pause();
         setIsPlaying(false);
+        console.log('Музыка остановлена');
       } else {
-        await audio.play();
+        console.log('Попытка воспроизведения...');
+        const playPromise = await audio.play();
         setIsPlaying(true);
+        console.log('Музыка играет', playPromise);
       }
     } catch (error) {
-      console.log('Не удалось воспроизвести музыку');
+      console.error('Ошибка воспроизведения:', error);
+      alert('Не удалось воспроизвести музыку. Попробуйте ещё раз.');
     }
   };
 
