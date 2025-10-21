@@ -15,9 +15,18 @@ const ContactsSection = () => {
           </div>
         </div>
       </div>
-      <Card className="p-6 sm:p-10 max-w-2xl mx-auto shadow-2xl border border-amber-700/30 bg-gradient-to-br from-amber-50/95 via-white/90 to-amber-50/95 backdrop-blur-sm relative overflow-hidden scroll-reveal-scale delay-200">
+      <Card className="p-6 sm:p-10 max-w-2xl mx-auto shadow-2xl border-2 border-amber-700/30 bg-gradient-to-br from-amber-50/95 via-white/90 to-amber-50/95 backdrop-blur-sm relative overflow-hidden scroll-reveal-scale delay-200">
         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none" />
+        <div className="absolute top-3 left-3 text-3xl opacity-15">📱</div>
+        <div className="absolute top-3 right-3 text-3xl opacity-15">💬</div>
+        <div className="absolute bottom-3 left-6 text-2xl opacity-10">✉️</div>
+        <div className="absolute bottom-3 right-6 text-2xl opacity-10">📞</div>
         <div className="relative z-10">
+          <div className="mb-6 flex items-center justify-center gap-3">
+            <div className="h-px w-12 bg-gradient-to-r from-transparent to-amber-700/40" />
+            <Icon name="Phone" className="text-amber-700/60" size={32} />
+            <div className="h-px w-12 bg-gradient-to-l from-transparent to-amber-700/40" />
+          </div>
           <p className="font-serif text-lg sm:text-xl text-foreground mb-6 text-center">
             Остались вопросы? Напишите нам!
           </p>

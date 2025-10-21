@@ -38,14 +38,19 @@ const Footer = () => {
   };
 
   return (
-    <footer className="text-center pt-12 pb-6 border-t border-primary/10 relative scroll-reveal">
-      <div className="flex items-center justify-center gap-4 mb-4">
-        <div className="h-px w-24 bg-gradient-to-r from-transparent to-primary/30" />
+    <footer className="text-center pt-12 pb-6 border-t-2 border-amber-700/20 relative scroll-reveal bg-gradient-to-t from-amber-50/30 to-transparent">
+      <div className="absolute top-4 left-8 text-2xl opacity-10">💕</div>
+      <div className="absolute top-4 right-8 text-2xl opacity-10">💕</div>
+      <div className="absolute top-12 left-1/4 text-xl opacity-10">✨</div>
+      <div className="absolute top-12 right-1/4 text-xl opacity-10">✨</div>
+      
+      <div className="flex items-center justify-center gap-4 mb-4 relative z-10">
+        <div className="h-px w-24 bg-gradient-to-r from-transparent to-primary/40" />
         <Icon name="Heart" className="text-primary" size={24} />
-        <div className="h-px w-24 bg-gradient-to-l from-transparent to-primary/30" />
+        <div className="h-px w-24 bg-gradient-to-l from-transparent to-primary/40" />
       </div>
-      <p className="font-serif text-2xl text-primary mb-2">До встречи на нашей свадьбе!</p>
-      <p className="text-muted-foreground font-sans flex items-center justify-center gap-2">
+      <p className="font-serif text-3xl text-primary mb-2 relative z-10">До встречи на нашей свадьбе!</p>
+      <p className="text-muted-foreground font-sans flex items-center justify-center gap-2 relative z-10">
         <Icon name="Calendar" size={16} />
         Лев & Яна • 07.08.2026
       </p>

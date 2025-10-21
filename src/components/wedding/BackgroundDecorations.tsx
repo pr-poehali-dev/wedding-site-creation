@@ -20,6 +20,13 @@ const BackgroundDecorations = ({ confetti }: BackgroundDecorationsProps) => {
         />
       ))}
       
+      <div className="absolute top-10 left-5 text-6xl opacity-10 pointer-events-none">🌸</div>
+      <div className="absolute top-32 right-8 text-5xl opacity-10 pointer-events-none rotate-12">💐</div>
+      <div className="absolute bottom-20 left-12 text-7xl opacity-10 pointer-events-none -rotate-6">🌹</div>
+      <div className="absolute top-1/2 right-16 text-4xl opacity-10 pointer-events-none rotate-45">🌺</div>
+      <div className="absolute bottom-40 right-1/4 text-5xl opacity-10 pointer-events-none -rotate-12">🌷</div>
+      <div className="absolute top-20 left-1/3 text-3xl opacity-10 pointer-events-none rotate-6">✨</div>
+      
       <div className="absolute top-20 left-10 w-64 h-64 border border-primary/5 rounded-full pointer-events-none" />
       <div className="absolute top-40 left-20 w-48 h-48 border border-accent/5 rounded-full pointer-events-none" />
       <div className="absolute bottom-32 right-16 w-72 h-72 border border-primary/5 rounded-full pointer-events-none" />
