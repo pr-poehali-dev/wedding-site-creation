@@ -35,6 +35,8 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     bot_token = os.environ.get('TELEGRAM_BOT_TOKEN')
     chat_id = os.environ.get('TELEGRAM_CHAT_ID')
     
+    print(f"Bot token exists: {bool(bot_token)}, Chat ID exists: {bool(chat_id)}")
+    
     if not bot_token or not chat_id:
         return {
             'statusCode': 500,
@@ -46,6 +48,8 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     notification_type = body_data.get('type')
     name = body_data.get('name', 'Неизвестный гость')
     data = body_data.get('data', {})
+    
+    print(f"Notification type: {notification_type}, Name: {name}")
     
     if notification_type == 'rsvp':
         attending = data.get('attending')
@@ -94,6 +98,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     try:
         with urllib.request.urlopen(req) as response:
             result = json.loads(response.read().decode('utf-8'))
+            print(f"Telegram API response: {result}")
             
             return {
                 'statusCode': 200,
@@ -102,6 +107,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                 'body': json.dumps({'success': True, 'message': 'Notification sent'})
             }
     except Exception as e:
+        print(f"Error sending to Telegram: {str(e)}")
         return {
             'statusCode': 500,
             'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
