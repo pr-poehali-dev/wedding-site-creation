@@ -1,6 +1,27 @@
+import { useState, useRef } from 'react';
 import Icon from '@/components/ui/icon';
 
 const Footer = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  const toggleMusic = async () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    try {
+      if (isPlaying) {
+        audio.pause();
+        setIsPlaying(false);
+      } else {
+        await audio.play();
+        setIsPlaying(true);
+      }
+    } catch (error) {
+      console.log('Не удалось воспроизвести музыку');
+    }
+  };
+
   return (
     <footer className="text-center pt-12 pb-6 border-t border-primary/10 relative scroll-reveal">
       <div className="flex items-center justify-center gap-4 mb-4">
@@ -15,22 +36,15 @@ const Footer = () => {
       </p>
       
       <button
-        onClick={() => {
-          const audio = document.getElementById('wedding-music') as HTMLAudioElement;
-          if (audio.paused) {
-            audio.play();
-          } else {
-            audio.pause();
-          }
-        }}
+        onClick={toggleMusic}
         className="mt-6 inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-700/80 to-amber-600/80 text-white rounded-full hover:shadow-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm"
       >
-        <Icon name="Music" size={20} />
-        <span className="font-sans text-sm">Включить музыку</span>
+        <Icon name={isPlaying ? "Pause" : "Music"} size={20} />
+        <span className="font-sans text-sm">{isPlaying ? "Пауза" : "Включить музыку"}</span>
       </button>
       
-      <audio id="wedding-music" loop>
-        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg" />
+      <audio ref={audioRef} loop preload="auto">
+        <source src="https://cdn.poehali.dev/public/classical-wedding-music.mp3" type="audio/mpeg" />
       </audio>
     </footer>
   );

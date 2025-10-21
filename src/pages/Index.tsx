@@ -8,7 +8,6 @@ import DressCodeSection from '@/components/wedding/DressCodeSection';
 import GiftsSection from '@/components/wedding/GiftsSection';
 import ContactsSection from '@/components/wedding/ContactsSection';
 import Footer from '@/components/wedding/Footer';
-import MusicPlayer from '@/components/wedding/MusicPlayer';
 
 const WeddingDate = new Date('2026-08-07T14:15:00');
 
@@ -93,10 +92,6 @@ const Index = () => {
         <GiftsSection />
         <ContactsSection />
         <Footer />
-        
-        <div className="pb-8">
-          <MusicPlayer />
-        </div>
       </div>
     </div>
   );
