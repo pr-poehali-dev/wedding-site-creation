@@ -59,8 +59,8 @@ const Footer = () => {
         <span className="font-sans text-sm">{isPlaying ? "Пауза" : "Включить музыку"}</span>
       </button>
       
-      <audio ref={audioRef} loop autoPlay>
-        <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3c0f3d2caf.mp3" type="audio/mpeg" />
+      <audio ref={audioRef} loop>
+        <source src="https://assets.mixkit.co/music/preview/mixkit-a-very-happy-christmas-897.mp3" type="audio/mpeg" />
       </audio>
     </footer>
   );
