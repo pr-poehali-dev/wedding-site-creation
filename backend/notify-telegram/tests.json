@@ -1,0 +1,39 @@
+{
+  "tests": [
+    {
+      "name": "Test RSVP notification",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "type": "rsvp",
+        "name": "Тестовый Гость",
+        "data": {
+          "attending": "yes"
+        }
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Test music preferences notification",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "type": "music",
+        "name": "Тестовый Гость",
+        "data": {
+          "genres": ["pop", "dance"],
+          "customSongs": "Любимая песня"
+        }
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}

@@ -28,7 +28,7 @@ const MusicSurvey = () => {
     );
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (selectedGenres.length === 0) {
@@ -39,10 +39,29 @@ const MusicSurvey = () => {
       return;
     }
 
+    const savedName = Object.keys(localStorage).find(key => key.startsWith('rsvp_'))?.replace('rsvp_', '') || 'Гость';
+
     localStorage.setItem('music_preferences', JSON.stringify({
       genres: selectedGenres,
       customSongs: customSongs
     }));
+    
+    try {
+      await fetch('https://functions.poehali.dev/ed8aa0d6-a56a-44cd-b77e-efba232251cf', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'music',
+          name: savedName,
+          data: {
+            genres: selectedGenres,
+            customSongs: customSongs
+          }
+        })
+      });
+    } catch (error) {
+      console.error('Failed to send notification:', error);
+    }
     
     setSubmitted(true);
     toast({

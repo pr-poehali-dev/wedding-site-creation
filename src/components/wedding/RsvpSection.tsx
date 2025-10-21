@@ -11,7 +11,7 @@ const RsvpSection = () => {
   const [submitted, setSubmitted] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!name || !attending) {
@@ -29,6 +29,20 @@ const RsvpSection = () => {
     }
     
     localStorage.setItem(`rsvp_${name}`, attending);
+    
+    try {
+      await fetch('https://functions.poehali.dev/ed8aa0d6-a56a-44cd-b77e-efba232251cf', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'rsvp',
+          name: name,
+          data: { attending }
+        })
+      });
+    } catch (error) {
+      console.error('Failed to send notification:', error);
+    }
     
     setSubmitted(true);
     toast({
