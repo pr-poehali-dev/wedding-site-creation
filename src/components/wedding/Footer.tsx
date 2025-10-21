@@ -37,9 +37,11 @@ const Footer = () => {
       
       <button
         onClick={toggleMusic}
-        className="mt-6 inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-700/80 to-amber-600/80 text-white rounded-full hover:shadow-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+        className={`mt-6 inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-700/80 to-amber-600/80 text-white rounded-full hover:shadow-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm ${
+          isPlaying ? 'animate-pulse shadow-2xl shadow-amber-500/50' : ''
+        }`}
       >
-        <Icon name={isPlaying ? "Pause" : "Music"} size={20} />
+        <Icon name={isPlaying ? "Pause" : "Music"} size={20} className={isPlaying ? 'animate-bounce' : ''} />
         <span className="font-sans text-sm">{isPlaying ? "Пауза" : "Включить музыку"}</span>
       </button>
       
