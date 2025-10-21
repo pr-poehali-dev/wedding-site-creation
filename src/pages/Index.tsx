@@ -8,6 +8,11 @@ import DressCodeSection from '@/components/wedding/DressCodeSection';
 import GiftsSection from '@/components/wedding/GiftsSection';
 import ContactsSection from '@/components/wedding/ContactsSection';
 import Footer from '@/components/wedding/Footer';
+import RsvpSection from '@/components/wedding/RsvpSection';
+import MusicSurvey from '@/components/wedding/MusicSurvey';
+import GuestCounter from '@/components/wedding/GuestCounter';
+import QrCode from '@/components/wedding/QrCode';
+import FallingPetals from '@/components/wedding/FallingPetals';
 
 const WeddingDate = new Date('2026-08-07T14:15:00');
 
@@ -81,15 +86,20 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-emerald-50 relative overflow-hidden vintage-texture">
+      <FallingPetals />
       <BackgroundDecorations confetti={confetti} />
       
       <div className="container max-w-4xl mx-auto px-4 py-12 space-y-16 relative z-10">
         <HeroSection timeLeft={timeLeft} />
+        <GuestCounter />
         <PhotoSection />
         <ProgramSection />
         <GallerySection galleryImages={galleryImages} />
         <DressCodeSection />
+        <RsvpSection />
+        <MusicSurvey />
         <GiftsSection />
+        <QrCode />
         <ContactsSection />
         <Footer />
       </div>
