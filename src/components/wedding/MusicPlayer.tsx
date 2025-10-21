@@ -1,38 +1,79 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Icon from '@/components/ui/icon';
 
 const MusicPlayer = () => {
-  const [isVisible, setIsVisible] = useState(true);
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
-  const toggleVisibility = () => {
-    setIsVisible(!isVisible);
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const playAudio = async () => {
+      try {
+        await audio.play();
+        setIsPlaying(true);
+      } catch (error) {
+        console.log('Автовоспроизведение заблокировано. Нажмите кнопку Play.');
+      }
+    };
+
+    const handleInteraction = async () => {
+      if (audio.paused) {
+        await playAudio();
+        document.removeEventListener('click', handleInteraction);
+        document.removeEventListener('touchstart', handleInteraction);
+      }
+    };
+
+    playAudio();
+
+    document.addEventListener('click', handleInteraction);
+    document.addEventListener('touchstart', handleInteraction);
+
+    return () => {
+      document.removeEventListener('click', handleInteraction);
+      document.removeEventListener('touchstart', handleInteraction);
+    };
+  }, []);
+
+  const togglePlay = async () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (isPlaying) {
+      audio.pause();
+      setIsPlaying(false);
+    } else {
+      try {
+        await audio.play();
+        setIsPlaying(true);
+      } catch (error) {
+        console.log('Ошибка воспроизведения');
+      }
+    }
   };
 
   return (
     <>
-      {isVisible && (
-        <div className="fixed bottom-6 right-6 z-50 shadow-2xl rounded-lg overflow-hidden backdrop-blur-sm bg-card/95 border-2 border-primary/20 max-w-[350px] w-full">
-          <iframe
-            width="100%"
-            height="166"
-            scrolling="no"
-            frameBorder="no"
-            allow="autoplay"
-            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1109421636&color=%23ff5500&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&loop=true"
-            title="SoundCloud - Дама"
-          />
-        </div>
-      )}
+      <audio
+        ref={audioRef}
+        loop
+        preload="auto"
+        crossOrigin="anonymous"
+      >
+        <source src="https://disk.yandex.ru/d/YJCef6suixBQ2Q/download" type="audio/mpeg" />
+      </audio>
 
       <button
-        onClick={toggleVisibility}
-        className="fixed bottom-6 left-6 z-50 p-3 bg-primary/90 hover:bg-primary text-primary-foreground rounded-full shadow-xl backdrop-blur-sm transition-all hover:scale-110"
-        aria-label={isVisible ? 'Скрыть плеер' : 'Показать плеер'}
+        onClick={togglePlay}
+        className="fixed bottom-6 right-6 z-50 p-4 bg-primary/90 hover:bg-primary text-primary-foreground rounded-full shadow-xl backdrop-blur-sm transition-all hover:scale-110"
+        aria-label={isPlaying ? 'Пауза' : 'Воспроизвести'}
       >
-        {isVisible ? (
-          <Icon name="Volume2" size={20} />
+        {isPlaying ? (
+          <Icon name="Pause" size={24} />
         ) : (
-          <Icon name="VolumeX" size={20} />
+          <Icon name="Play" size={24} />
         )}
       </button>
     </>
