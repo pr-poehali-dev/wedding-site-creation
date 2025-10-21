@@ -46,7 +46,7 @@ const Footer = () => {
       </button>
       
       <audio ref={audioRef} loop preload="auto">
-        <source src="https://cdn.poehali.dev/public/classical-wedding-music.mp3" type="audio/mpeg" />
+        <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3c0f3d2caf.mp3" type="audio/mpeg" />
       </audio>
     </footer>
   );
