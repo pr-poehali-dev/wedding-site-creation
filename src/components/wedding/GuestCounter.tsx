@@ -20,8 +20,9 @@ const GuestCounter = () => {
   return (
     <Card className="p-6 sm:p-8 shadow-2xl border-2 border-amber-700/30 bg-gradient-to-br from-amber-50/95 via-white/90 to-amber-50/95 backdrop-blur-sm relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 pointer-events-none" />
-      <div className="absolute top-3 left-3 text-3xl opacity-15">👥</div>
-      <div className="absolute bottom-3 right-3 text-3xl opacity-15">✨</div>
+      <div className="absolute top-6 right-6 text-2xl opacity-12">👥</div>
+      <div className="absolute bottom-6 right-10 text-xl opacity-10">🎉</div>
+      <div className="absolute top-1/3 right-1/4 text-lg opacity-8">✨</div>
       
       <div className="relative z-10 text-center">
         <div className="mb-4 flex items-center justify-center gap-3">

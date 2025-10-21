@@ -17,12 +17,10 @@ const GiftsSection = () => {
       </div>
       <Card className="p-6 sm:p-10 shadow-2xl border-2 border-amber-700/30 bg-gradient-to-br from-amber-50/95 via-white/90 to-amber-50/95 backdrop-blur-sm relative overflow-hidden scroll-reveal-scale delay-200">
         <div className="absolute inset-0 bg-gradient-to-br from-amber-700/5 via-transparent to-amber-900/5 pointer-events-none" />
-        <div className="absolute top-4 left-4 text-4xl opacity-15">🎁</div>
-        <div className="absolute top-4 right-4 text-4xl opacity-15">💝</div>
-        <div className="absolute bottom-4 left-8 text-3xl opacity-15">🎀</div>
-        <div className="absolute bottom-4 right-8 text-3xl opacity-15">✨</div>
-        <div className="absolute top-1/2 left-1/4 text-2xl opacity-10">💌</div>
-        <div className="absolute top-1/3 right-1/4 text-2xl opacity-10">🌟</div>
+        <div className="absolute top-6 right-6 text-2xl opacity-12">🎁</div>
+        <div className="absolute bottom-6 right-10 text-xl opacity-10">💝</div>
+        <div className="absolute top-1/3 right-1/4 text-lg opacity-8">🎀</div>
+        <div className="absolute bottom-1/3 right-1/3 text-lg opacity-8">✨</div>
         <div className="relative z-10 text-center">
           <div className="mb-6 flex items-center justify-center gap-3">
             <div className="h-px w-12 bg-gradient-to-r from-transparent to-amber-700/40" />
