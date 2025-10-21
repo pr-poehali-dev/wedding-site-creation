@@ -39,8 +39,7 @@ const Footer = () => {
 
   return (
     <footer className="text-center pt-12 pb-6 border-t-2 border-amber-700/20 relative scroll-reveal bg-gradient-to-t from-amber-50/30 to-transparent overflow-hidden">
-      <div className="absolute top-8 right-12 text-xl opacity-10">💕</div>
-      <div className="absolute top-16 right-1/4 text-lg opacity-8">✨</div>
+      <div className="absolute top-8 right-12 text-base opacity-5">💕</div>
       
       <div className="flex items-center justify-center gap-4 mb-4 relative z-10">
         <div className="h-px w-24 bg-gradient-to-r from-transparent to-primary/40" />

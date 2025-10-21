@@ -19,8 +19,8 @@ const ProgramSection = () => {
       <div className="space-y-6">
         <Card className="p-4 sm:p-8 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] border-2 border-amber-700/30 bg-gradient-to-br from-amber-50/95 via-white/90 to-amber-50/95 backdrop-blur-sm shadow-lg relative overflow-hidden scroll-reveal-left delay-200 animate-slide-in-left">
           <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-amber-700/70 via-amber-600/50 to-amber-700/70 animate-shimmer" style={{backgroundSize: '200% 100%'}} />
-          <div className="absolute top-3 right-4 text-2xl opacity-15">💍</div>
-          <div className="absolute bottom-3 right-12 text-xl opacity-10">💕</div>
+          <div className="absolute top-8 right-8 text-xl opacity-8">💍</div>
+          <div className="absolute bottom-20 right-6 text-lg opacity-6">💕</div>
           <div className="flex items-start gap-3 sm:gap-4">
             <div className="bg-gradient-to-br from-amber-700/30 to-amber-600/20 p-3 sm:p-4 rounded-full ring-2 ring-amber-700/30 shadow-md animate-pulse-glow flex-shrink-0">
               <Icon name="Clock" className="text-primary" size={24} />
@@ -38,9 +38,8 @@ const ProgramSection = () => {
 
         <Card className="p-4 sm:p-8 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] border-2 border-amber-700/30 bg-gradient-to-br from-amber-50/95 via-white/90 to-amber-50/95 backdrop-blur-sm shadow-lg relative overflow-hidden scroll-reveal-left delay-300">
           <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-amber-700/70 via-amber-600/50 to-amber-700/70" />
-          <div className="absolute top-4 right-6 text-2xl opacity-15">📸</div>
-          <div className="absolute bottom-4 right-3 text-xl opacity-12">🌸</div>
-          <div className="absolute top-1/3 right-1/4 text-lg opacity-10">✨</div>
+          <div className="absolute top-8 right-8 text-xl opacity-8">📸</div>
+          <div className="absolute bottom-20 right-6 text-lg opacity-6">🌸</div>
           <div className="flex items-start gap-3 sm:gap-4">
             <div className="bg-gradient-to-br from-amber-700/30 to-amber-600/20 p-3 sm:p-4 rounded-full ring-2 ring-amber-700/30 shadow-md flex-shrink-0">
               <Icon name="Camera" className="text-primary" size={24} />
@@ -57,10 +56,8 @@ const ProgramSection = () => {
 
         <Card className="p-4 sm:p-8 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] border-2 border-amber-700/30 bg-gradient-to-br from-amber-50/95 via-white/90 to-amber-50/95 backdrop-blur-sm shadow-lg relative overflow-hidden scroll-reveal-left delay-400">
           <div className="absolute top-0 left-0 w-2 h-full bg-gradient-to-b from-amber-700/70 via-amber-600/50 to-amber-700/70" />
-          <div className="absolute top-4 right-5 text-2xl opacity-15">🥂</div>
-          <div className="absolute top-1/4 right-1/3 text-xl opacity-12">🍾</div>
-          <div className="absolute bottom-20 right-8 text-lg opacity-10">🎊</div>
-          <div className="absolute top-2/3 right-1/4 text-xl opacity-10">✨</div>
+          <div className="absolute top-8 right-8 text-xl opacity-8">🥂</div>
+          <div className="absolute bottom-32 right-6 text-lg opacity-6">🍾</div>
           <div className="flex items-start gap-3 sm:gap-4">
             <div className="bg-gradient-to-br from-amber-700/30 to-amber-600/20 p-3 sm:p-4 rounded-full ring-2 ring-amber-700/30 shadow-md flex-shrink-0">
               <Icon name="Sparkles" className="text-accent" size={24} />
