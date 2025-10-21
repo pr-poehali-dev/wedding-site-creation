@@ -83,7 +83,6 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-emerald-50 relative overflow-hidden vintage-texture">
       <BackgroundDecorations confetti={confetti} />
-      <MusicPlayer />
       
       <div className="container max-w-4xl mx-auto px-4 py-12 space-y-16 relative z-10">
         <HeroSection timeLeft={timeLeft} />
@@ -94,6 +93,10 @@ const Index = () => {
         <GiftsSection />
         <ContactsSection />
         <Footer />
+        
+        <div className="pb-8">
+          <MusicPlayer />
+        </div>
       </div>
     </div>
   );

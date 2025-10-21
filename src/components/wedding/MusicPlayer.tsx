@@ -1,9 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
-import Icon from '@/components/ui/icon';
+import { useEffect, useRef } from 'react';
 
 const MusicPlayer = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -12,9 +10,8 @@ const MusicPlayer = () => {
     const playAudio = async () => {
       try {
         await audio.play();
-        setIsPlaying(true);
       } catch (error) {
-        console.log('Автовоспроизведение заблокировано. Нажмите кнопку Play.');
+        console.log('Автовоспроизведение заблокировано браузером');
       }
     };
 
@@ -37,45 +34,16 @@ const MusicPlayer = () => {
     };
   }, []);
 
-  const togglePlay = async () => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    if (isPlaying) {
-      audio.pause();
-      setIsPlaying(false);
-    } else {
-      try {
-        await audio.play();
-        setIsPlaying(true);
-      } catch (error) {
-        console.log('Ошибка воспроизведения');
-      }
-    }
-  };
-
   return (
-    <>
-      <audio
-        ref={audioRef}
-        loop
-        preload="auto"
-      >
-        <source src="https://cdn.poehali.dev/public/classical-wedding-music.mp3" type="audio/mpeg" />
-      </audio>
-
-      <button
-        onClick={togglePlay}
-        className="fixed bottom-6 right-6 z-50 p-4 bg-primary/90 hover:bg-primary text-primary-foreground rounded-full shadow-xl backdrop-blur-sm transition-all hover:scale-110"
-        aria-label={isPlaying ? 'Пауза' : 'Воспроизвести'}
-      >
-        {isPlaying ? (
-          <Icon name="Pause" size={24} />
-        ) : (
-          <Icon name="Play" size={24} />
-        )}
-      </button>
-    </>
+    <audio
+      ref={audioRef}
+      loop
+      preload="auto"
+      controls
+      className="w-full max-w-2xl mx-auto"
+    >
+      <source src="https://cdn.poehali.dev/public/classical-wedding-music.mp3" type="audio/mpeg" />
+    </audio>
   );
 };
 
