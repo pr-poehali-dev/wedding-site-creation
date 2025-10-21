@@ -21,14 +21,19 @@ const Footer = () => {
     };
   }, []);
 
-  const handleClick = () => {
+  const handleClick = async () => {
     const audio = audioRef.current;
     if (!audio) return;
 
-    if (audio.paused) {
-      audio.play().catch(err => console.error('Ошибка:', err));
-    } else {
-      audio.pause();
+    try {
+      if (audio.paused) {
+        audio.volume = 0.5;
+        await audio.play();
+      } else {
+        audio.pause();
+      }
+    } catch (err) {
+      console.error('Не удалось воспроизвести:', err);
     }
   };
 
@@ -48,15 +53,13 @@ const Footer = () => {
       <button
         onClick={handleClick}
         type="button"
-        className={`mt-6 inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-700/80 to-amber-600/80 text-white rounded-full hover:shadow-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm relative z-10 ${
-          isPlaying ? 'animate-pulse shadow-2xl shadow-amber-500/50' : ''
-        }`}
+        className="mt-6 inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-700/80 to-amber-600/80 text-white rounded-full hover:shadow-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm relative z-10"
       >
-        <Icon name={isPlaying ? "Pause" : "Music"} size={20} className={isPlaying ? 'animate-bounce' : ''} />
+        <Icon name={isPlaying ? "Pause" : "Music"} size={20} />
         <span className="font-sans text-sm">{isPlaying ? "Пауза" : "Включить музыку"}</span>
       </button>
       
-      <audio ref={audioRef} loop preload="auto">
+      <audio ref={audioRef} loop autoPlay>
         <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_3c0f3d2caf.mp3" type="audio/mpeg" />
       </audio>
     </footer>
