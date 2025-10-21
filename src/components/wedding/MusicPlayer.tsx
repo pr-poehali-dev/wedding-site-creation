@@ -13,11 +13,13 @@ const MusicPlayer = () => {
       {isVisible && (
         <div className="fixed bottom-6 right-6 z-50 shadow-2xl rounded-lg overflow-hidden backdrop-blur-sm bg-card/95 border-2 border-primary/20 max-w-[350px] w-full">
           <iframe
-            frameBorder="0"
-            className="w-full h-[100px]"
-            src="https://music.yandex.ru/iframe/track/42081818/?autoplay=1&repeat=track"
-            allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
-            title="Яндекс Музыка - Дама"
+            width="100%"
+            height="166"
+            scrolling="no"
+            frameBorder="no"
+            allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1109421636&color=%23ff5500&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&loop=true"
+            title="SoundCloud - Дама"
           />
         </div>
       )}
