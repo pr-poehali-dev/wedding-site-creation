@@ -8,6 +8,7 @@ import DressCodeSection from '@/components/wedding/DressCodeSection';
 import GiftsSection from '@/components/wedding/GiftsSection';
 import ContactsSection from '@/components/wedding/ContactsSection';
 import Footer from '@/components/wedding/Footer';
+import MusicPlayer from '@/components/wedding/MusicPlayer';
 
 const WeddingDate = new Date('2026-08-07T14:15:00');
 
@@ -26,27 +27,7 @@ const Index = () => {
   });
   const [confetti, setConfetti] = useState<Array<{id: number, x: number, y: number, rotation: number, color: string, delay: number}>>([]);
 
-  useEffect(() => {
-    const audio = new Audio('https://cdn.poehali.dev/public/classical-wedding-music.mp3');
-    audio.loop = true;
-    audio.volume = 0.3;
-    
-    const playAudio = () => {
-      audio.play().catch(err => {
-        console.log('Autoplay prevented:', err);
-        document.addEventListener('click', () => {
-          audio.play();
-        }, { once: true });
-      });
-    };
-    
-    playAudio();
-    
-    return () => {
-      audio.pause();
-      audio.currentTime = 0;
-    };
-  }, []);
+
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -102,6 +83,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-emerald-50 relative overflow-hidden vintage-texture">
       <BackgroundDecorations confetti={confetti} />
+      <MusicPlayer />
       
       <div className="container max-w-4xl mx-auto px-4 py-12 space-y-16 relative z-10">
         <HeroSection timeLeft={timeLeft} />
