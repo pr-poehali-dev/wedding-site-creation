@@ -17,7 +17,7 @@ const MusicSurvey = () => {
     { id: 'dance', name: 'Танцевальная', icon: '💃' },
     { id: 'retro', name: 'Ретро', icon: '📻' },
     { id: 'jazz', name: 'Джаз', icon: '🎷' },
-    { id: 'russian', name: 'Русская', icon: '🪗' },
+    { id: 'russian', name: 'Русская', icon: '🎻' },
   ];
 
   const toggleGenre = (genreId: string) => {
