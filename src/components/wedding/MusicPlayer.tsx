@@ -60,9 +60,8 @@ const MusicPlayer = () => {
         ref={audioRef}
         loop
         preload="auto"
-        crossOrigin="anonymous"
       >
-        <source src="https://disk.yandex.ru/d/YJCef6suixBQ2Q/download" type="audio/mpeg" />
+        <source src="https://cdn.poehali.dev/public/classical-wedding-music.mp3" type="audio/mpeg" />
       </audio>
 
       <button
