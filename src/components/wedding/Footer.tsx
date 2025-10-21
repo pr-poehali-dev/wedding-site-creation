@@ -1,31 +1,34 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Icon from '@/components/ui/icon';
 
 const Footer = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  const toggleMusic = async () => {
+  useEffect(() => {
     const audio = audioRef.current;
-    if (!audio) {
-      console.log('Аудио элемент не найден');
-      return;
-    }
+    if (!audio) return;
 
-    try {
-      if (isPlaying) {
-        audio.pause();
-        setIsPlaying(false);
-        console.log('Музыка остановлена');
-      } else {
-        console.log('Попытка воспроизведения...');
-        const playPromise = await audio.play();
-        setIsPlaying(true);
-        console.log('Музыка играет', playPromise);
-      }
-    } catch (error) {
-      console.error('Ошибка воспроизведения:', error);
-      alert('Не удалось воспроизвести музыку. Попробуйте ещё раз.');
+    const handlePlay = () => setIsPlaying(true);
+    const handlePause = () => setIsPlaying(false);
+
+    audio.addEventListener('play', handlePlay);
+    audio.addEventListener('pause', handlePause);
+
+    return () => {
+      audio.removeEventListener('play', handlePlay);
+      audio.removeEventListener('pause', handlePause);
+    };
+  }, []);
+
+  const handleClick = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    if (audio.paused) {
+      audio.play().catch(err => console.error('Ошибка:', err));
+    } else {
+      audio.pause();
     }
   };
 
@@ -43,8 +46,9 @@ const Footer = () => {
       </p>
       
       <button
-        onClick={toggleMusic}
-        className={`mt-6 inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-700/80 to-amber-600/80 text-white rounded-full hover:shadow-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm ${
+        onClick={handleClick}
+        type="button"
+        className={`mt-6 inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-amber-700/80 to-amber-600/80 text-white rounded-full hover:shadow-xl transition-all duration-300 hover:scale-105 backdrop-blur-sm relative z-10 ${
           isPlaying ? 'animate-pulse shadow-2xl shadow-amber-500/50' : ''
         }`}
       >
