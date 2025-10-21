@@ -68,7 +68,7 @@ const MusicPlayer = () => {
         loop
         preload="auto"
       >
-        <source src="https://disk.yandex.ru/d/YJCef6suixBQ2Q" type="audio/mpeg" />
+        <source src="https://drive.google.com/uc?export=download&id=1dc-KeWTwxvid6fy-whW2OLWIX27l-PUb" type="audio/mpeg" />
       </audio>
 
       <button
