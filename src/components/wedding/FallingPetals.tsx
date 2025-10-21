@@ -14,13 +14,13 @@ const FallingPetals = () => {
 
   useEffect(() => {
     const petalArray: Petal[] = [];
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 25; i++) {
       petalArray.push({
         id: i,
         left: Math.random() * 100,
-        animationDuration: 8 + Math.random() * 10,
-        animationDelay: Math.random() * 8,
-        size: 20 + Math.random() * 20,
+        animationDuration: 12 + Math.random() * 8,
+        animationDelay: Math.random() * 10,
+        size: 15 + Math.random() * 15,
         rotation: Math.random() * 360
       });
     }
@@ -32,33 +32,22 @@ const FallingPetals = () => {
       {petals.map((petal) => (
         <div
           key={petal.id}
-          className="absolute animate-fall-petal opacity-60"
+          className="absolute animate-fall-petal opacity-70"
           style={{
             left: `${petal.left}%`,
             top: '-50px',
             width: `${petal.size}px`,
-            height: `${petal.size}px`,
+            height: `${petal.size * 0.75}px`,
             animationDuration: `${petal.animationDuration}s`,
             animationDelay: `${petal.animationDelay}s`,
             transform: `rotate(${petal.rotation}deg)`
           }}
         >
-          <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <path
-              fill="rgba(251, 191, 191, 0.7)"
-              d="M 100, 100 m -75, 0 a 75,75 0 1,0 150,0 a 75,75 0 1,0 -150,0"
-              transform="rotate(45 100 100)"
-            />
-            <path
-              fill="rgba(254, 202, 202, 0.6)"
-              d="M 100, 100 m -60, 0 a 60,60 0 1,0 120,0 a 60,60 0 1,0 -120,0"
-              transform="rotate(90 100 100)"
-            />
-            <path
-              fill="rgba(252, 165, 165, 0.5)"
-              d="M 100, 100 m -45, 0 a 45,45 0 1,0 90,0 a 45,45 0 1,0 -90,0"
-              transform="rotate(135 100 100)"
-            />
+          <svg viewBox="0 0 40 30" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="20" cy="15" rx="18" ry="13" fill="rgba(244, 114, 182, 0.5)" />
+            <ellipse cx="20" cy="15" rx="14" ry="10" fill="rgba(251, 146, 202, 0.6)" />
+            <ellipse cx="20" cy="15" rx="10" ry="7" fill="rgba(253, 164, 212, 0.7)" />
+            <ellipse cx="20" cy="17" rx="6" ry="4" fill="rgba(255, 182, 222, 0.5)" />
           </svg>
         </div>
       ))}
