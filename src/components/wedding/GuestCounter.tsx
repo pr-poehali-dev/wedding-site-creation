@@ -8,7 +8,7 @@ const GuestCounter = () => {
   useEffect(() => {
     const updateCount = () => {
       const count = parseInt(localStorage.getItem('rsvp_count') || '0');
-      const baseCount = 16;
+      const baseCount = 18;
       setGuestCount(baseCount + count);
     };
 
