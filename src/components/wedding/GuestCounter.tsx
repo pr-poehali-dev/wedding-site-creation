@@ -12,9 +12,14 @@ const GuestCounter = () => {
     };
 
     updateCount();
-    window.addEventListener('rsvp-updated', updateCount);
     
-    return () => window.removeEventListener('rsvp-updated', updateCount);
+    window.addEventListener('rsvp-updated', updateCount);
+    window.addEventListener('storage', updateCount);
+    
+    return () => {
+      window.removeEventListener('rsvp-updated', updateCount);
+      window.removeEventListener('storage', updateCount);
+    };
   }, []);
 
   return (
