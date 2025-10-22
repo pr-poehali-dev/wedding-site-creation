@@ -4,26 +4,12 @@ import Icon from '@/components/ui/icon';
 
 const GuestCounter = () => {
   const [guestCount, setGuestCount] = useState(0);
-  const [guestNames, setGuestNames] = useState<string[]>([]);
 
   useEffect(() => {
     const updateCount = () => {
       const count = parseInt(localStorage.getItem('rsvp_count') || '0');
       const baseCount = 16;
       setGuestCount(baseCount + count);
-      
-      const names: string[] = [];
-      for (let i = 0; i < localStorage.length; i++) {
-        const key = localStorage.key(i);
-        if (key?.startsWith('rsvp_') && key !== 'rsvp_count') {
-          const name = key.replace('rsvp_', '');
-          const status = localStorage.getItem(key);
-          if (status === 'yes') {
-            names.push(name);
-          }
-        }
-      }
-      setGuestNames(names);
     };
 
     updateCount();
@@ -54,7 +40,7 @@ const GuestCounter = () => {
           {guestCount}
         </div>
         
-        <p className="font-sans text-lg text-muted-foreground mb-6">
+        <p className="font-sans text-lg text-muted-foreground">
           {guestCount === 0 
             ? 'Ждём первого подтверждения'
             : guestCount === 1 
@@ -63,25 +49,6 @@ const GuestCounter = () => {
             ? 'гостя подтвердили участие'
             : 'гостей подтвердили участие'}
         </p>
-
-        {guestNames.length > 0 && (
-          <div className="mt-6 pt-6 border-t border-amber-700/20">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <Icon name="UserCheck" className="text-amber-700/60" size={20} />
-              <p className="font-serif text-lg text-primary">Подтвердили участие:</p>
-            </div>
-            <div className="flex flex-wrap gap-2 justify-center max-h-32 overflow-y-auto">
-              {guestNames.map((name, index) => (
-                <span
-                  key={index}
-                  className="px-3 py-1 bg-gradient-to-r from-amber-100 to-amber-50 border border-amber-700/20 rounded-full text-sm font-sans text-amber-900"
-                >
-                  {name}
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
     </Card>
   );
