@@ -27,13 +27,18 @@ const Footer = () => {
 
     try {
       if (audio.paused) {
-        audio.volume = 0.5;
-        await audio.play();
+        audio.volume = 0.3;
+        audio.load();
+        const playPromise = audio.play();
+        if (playPromise !== undefined) {
+          await playPromise;
+        }
       } else {
         audio.pause();
       }
     } catch (err) {
-      console.error('Не удалось воспроизвести:', err);
+      console.error('Ошибка воспроизведения:', err);
+      setIsPlaying(false);
     }
   };
 
@@ -61,8 +66,13 @@ const Footer = () => {
         <span className="font-sans text-sm">{isPlaying ? "Пауза" : "Включить музыку"}</span>
       </button>
       
-      <audio ref={audioRef} loop>
-        <source src="https://assets.mixkit.co/music/preview/mixkit-a-very-happy-christmas-897.mp3" type="audio/mpeg" />
+      <audio 
+        ref={audioRef} 
+        loop 
+        preload="auto"
+        crossOrigin="anonymous"
+      >
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3" type="audio/mpeg" />
       </audio>
     </footer>
   );
