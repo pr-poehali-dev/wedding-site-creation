@@ -1,0 +1,29 @@
+{
+  "tests": [
+    {
+      "name": "Get guest count",
+      "method": "GET",
+      "path": "/",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "count": "number"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Add guest with attending yes",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Тестовый гость",
+        "attending": "yes"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true,
+        "count": "number"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}

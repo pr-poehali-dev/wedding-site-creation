@@ -22,26 +22,38 @@ const RsvpSection = () => {
       });
       return;
     }
-
-    const currentCount = parseInt(localStorage.getItem('rsvp_count') || '0');
-    if (attending === 'yes') {
-      localStorage.setItem('rsvp_count', String(currentCount + 1));
-    }
-    
-    localStorage.setItem(`rsvp_${name}`, attending);
     
     try {
-      await fetch('https://functions.poehali.dev/ed8aa0d6-a56a-44cd-b77e-efba232251cf', {
+      await fetch('https://functions.poehali.dev/dff838f1-4971-49ae-9ec2-ea10101cdc49', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          type: 'rsvp',
           name: name,
-          data: { attending }
+          attending: attending
         })
       });
+      
+      try {
+        await fetch('https://functions.poehali.dev/ed8aa0d6-a56a-44cd-b77e-efba232251cf', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            type: 'rsvp',
+            name: name,
+            data: { attending }
+          })
+        });
+      } catch (error) {
+        console.error('Failed to send notification:', error);
+      }
     } catch (error) {
-      console.error('Failed to send notification:', error);
+      console.error('Failed to save RSVP:', error);
+      toast({
+        title: "Ошибка",
+        description: "Не удалось сохранить ответ. Попробуйте ещё раз.",
+        variant: "destructive"
+      });
+      return;
     }
     
     setSubmitted(true);

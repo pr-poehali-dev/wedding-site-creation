@@ -3,23 +3,32 @@ import { Card } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 
 const GuestCounter = () => {
-  const [guestCount, setGuestCount] = useState(0);
+  const [guestCount, setGuestCount] = useState(18);
 
   useEffect(() => {
-    const updateCount = () => {
-      const count = parseInt(localStorage.getItem('rsvp_count') || '0');
-      const baseCount = 18;
-      setGuestCount(baseCount + count);
+    const fetchCount = async () => {
+      try {
+        const response = await fetch('https://functions.poehali.dev/dff838f1-4971-49ae-9ec2-ea10101cdc49');
+        const data = await response.json();
+        setGuestCount(data.count || 18);
+      } catch (error) {
+        console.error('Ошибка загрузки счётчика:', error);
+      }
     };
 
-    updateCount();
+    fetchCount();
     
-    window.addEventListener('rsvp-updated', updateCount);
-    window.addEventListener('storage', updateCount);
+    const handleUpdate = () => {
+      fetchCount();
+    };
+    
+    window.addEventListener('rsvp-updated', handleUpdate);
+    
+    const interval = setInterval(fetchCount, 10000);
     
     return () => {
-      window.removeEventListener('rsvp-updated', updateCount);
-      window.removeEventListener('storage', updateCount);
+      window.removeEventListener('rsvp-updated', handleUpdate);
+      clearInterval(interval);
     };
   }, []);
 
