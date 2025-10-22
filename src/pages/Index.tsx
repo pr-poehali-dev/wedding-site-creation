@@ -13,6 +13,7 @@ import MusicSurvey from '@/components/wedding/MusicSurvey';
 import GuestCounter from '@/components/wedding/GuestCounter';
 import QrCode from '@/components/wedding/QrCode';
 import FallingPetals from '@/components/wedding/FallingPetals';
+import QuizSection from '@/components/wedding/QuizSection';
 
 const WeddingDate = new Date('2026-08-07T14:15:00');
 
@@ -96,6 +97,7 @@ const Index = () => {
         <ProgramSection />
         <GallerySection galleryImages={galleryImages} />
         <DressCodeSection />
+        <QuizSection />
         <RsvpSection />
         <MusicSurvey />
         <GiftsSection />
