@@ -35,15 +35,18 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             'isBase64Encoded': False
         }
     
-    conn = psycopg2.connect(database_url)
-    cursor = conn.cursor(cursor_factory=RealDictCursor)
-    
     try:
+        conn = psycopg2.connect(database_url)
+        cursor = conn.cursor(cursor_factory=RealDictCursor)
+        
         if method == 'GET':
             cursor.execute("SELECT COUNT(*) as count FROM guests WHERE attending = true")
             result = cursor.fetchone()
             base_count = 18
             total_count = base_count + (result['count'] if result else 0)
+            
+            cursor.close()
+            conn.close()
             
             return {
                 'statusCode': 200,
@@ -58,6 +61,8 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             attending = body_data.get('attending') == 'yes'
             
             if not name:
+                cursor.close()
+                conn.close()
                 return {
                     'statusCode': 400,
                     'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
@@ -76,6 +81,9 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             base_count = 18
             total_count = base_count + (result['count'] if result else 0)
             
+            cursor.close()
+            conn.close()
+            
             return {
                 'statusCode': 200,
                 'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
@@ -84,6 +92,8 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             }
         
         else:
+            cursor.close()
+            conn.close()
             return {
                 'statusCode': 405,
                 'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
@@ -91,6 +101,10 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                 'isBase64Encoded': False
             }
     
-    finally:
-        cursor.close()
-        conn.close()
+    except Exception as e:
+        return {
+            'statusCode': 500,
+            'headers': {'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*'},
+            'body': json.dumps({'error': str(e)}),
+            'isBase64Encoded': False
+        }
